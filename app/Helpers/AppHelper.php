@@ -35,4 +35,25 @@ class AppHelper
             ->where('id_pages_content', '=', $a)
             ->orderBy('id', 'ASC')->get();
     }
+
+    public static function menu_id($a)
+    {
+        $parent = '';
+        $query = DB::table('ifg_menu')
+            ->select('parent_id_kip')
+            ->where('id', '=', $a)->get();
+        foreach ($query as $row) {
+            $parent = $row->parent_id_kip;
+        }
+        return DB::table('ifg_menu')
+        ->select('id', 'menu_name')
+        ->where('id', '=', $parent)->get();    
+    }
+
+    public static function menu_id2($a)
+    {
+        return DB::table('ifg_menu')
+        ->select('id', 'menu_name', 'parent_id_kip', 'menu_link', 'menu_link_slug')
+        ->where('id', '=', $a)->get();    
+    }
 }

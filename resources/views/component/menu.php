@@ -80,7 +80,7 @@
 						$numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);	
 						?>
 						<li <?php if($numsub1){ echo 'class="nav-item dropdown"'; } ?>>
-							<a class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php } else {?>href="<?= url($row->menu_link_slug) ?>"<?php } ?>>
+							<a class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
 								<?php echo $row->menu_name; ?>
 							</a>
 							<?php if($numsub1){ ?>
@@ -91,7 +91,7 @@
 								$numsub2 = \App\Helpers\AppHelper::menu_child_num($row2->id);		
 								?>
 								<li>
-									<a class="dropdown-item" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row2->menu_link_slug) ?>"<?php } ?>><?php echo $row2->menu_name; ?> <?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; margin-top:7px;"></font><?php } ?></a>
+									<a class="dropdown-item" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row->menu_link.'/'.$row2->menu_link_slug) ?>"<?php } ?>><?php echo $row2->menu_name; ?> <?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; margin-top:7px;"></font><?php } ?></a>
 									<?php if($numsub2){ ?>
 									<ul class="dropdown-menu dropdown-submenu">
 										<?php
@@ -99,7 +99,7 @@
 										foreach ($query3 as $row3) {	
 										?>
 										<li>
-											<a class="dropdown-item" href="<?= url($row3->menu_link_slug) ?>"><?php echo $row3->menu_name; ?></a>
+											<a class="dropdown-item" href="<?= url($row->menu_link.'/'.$row3->menu_link_slug) ?>"><?php echo $row3->menu_name; ?></a>
 										</li>
 										<?php } ?>
 									</ul>

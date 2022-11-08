@@ -13,6 +13,27 @@ class FrontendController extends Controller
     {
         $data['color'] = '#000000';
         $data['primary'] = '#000000';
+        $data['slider'] = DB::table('ifg_pages_content_list_item')
+                        ->select('*')
+                        ->where('id_pages_content', '=', 1)->get();
+        $data['welcome'] = DB::table('ifg_pages_content')
+                        ->select('*')
+                        ->where('id_menu', '=', 2)->get();
+        $data['card'] = DB::table('ifg_pages_content_list_item')
+                        ->select('*')
+                        ->where('id_pages_content', '=', 3)->get();
+        $data['card_title'] = DB::table('ifg_pages_content')
+                        ->select('*')
+                        ->where('id', '=', 3)->get();
+        $data['company'] = DB::table('ifg_pages_content')
+                        ->select('*')
+                        ->where('id', '=', 4)->get();
+        $data['content'] = DB::table('ifg_menu')
+                ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
+                ->select('ifg_menu.menu_name', 'ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.id', '=', 13)
+                ->orWhere('ifg_menu.id', '=', 14)->get();
         return view("page.index", $data);
     }
     
@@ -23,28 +44,45 @@ class FrontendController extends Controller
         $data['content'] = DB::table('ifg_menu')
                 ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
                 ->select('ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
-                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
-                ->where('ifg_menu.menu_link_slug', '=', 'menu/'.$name)->get();
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.menu_link_slug', '=', $name)->get();
         return view("page.informasi", $data);
     }
     
-    public function informasi()
-    {
-        $data['color'] = '#000000';
-        $data['primary'] = '#000000';
-        return view("page.informasi", $data);
-    }
-
-    public function profil()
+    public function informasi_ifg($name)
     {
         $data['color'] = '#000000';
         $data['primary'] = '#000000';
         $data['content'] = DB::table('ifg_menu')
                 ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
                 ->select('ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
-                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
-                ->where('ifg_menu.menu_link_slug', '=', 'profil')->get();
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_name as menu_name', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.menu_link_slug', '=', $name)->get();
+        return view("page.informasi", $data);
+    }
+
+    public function profile_ifg($name)
+    {
+        $data['color'] = '#000000';
+        $data['primary'] = '#000000';
+        $data['content'] = DB::table('ifg_menu')
+                ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
+                ->select('ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_name as menu_name', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.menu_link_slug', '=', $name)->get();
         return view("page.profil", $data);
+    }
+
+    public function alur_pengajuan_ifg($name)
+    {
+        $data['color'] = '#000000';
+        $data['primary'] = '#000000';
+        $data['content'] = DB::table('ifg_menu')
+                ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
+                ->select('ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_name as menu_name', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.menu_link_slug', '=', $name)->get();
+        return view("page.jalur_pelayanan", $data);
     }
 
     public function kontak()
@@ -54,22 +92,15 @@ class FrontendController extends Controller
         return view("page.kontak", $data);
     }
 
-    public function jalur_pelayanan()
-    {
-        $data['color'] = '#000000';
-        $data['primary'] = '#000000';
-        return view("page.jalur_pelayanan", $data);
-    }
-
-    public function faq()
+    public function faq_ifg($name)
     {
         $data['color'] = '#000000';
         $data['primary'] = '#000000';
         $data['content'] = DB::table('ifg_menu')
                 ->join('ifg_pages_content', 'ifg_pages_content.id_menu', '=', 'ifg_menu.id')
                 ->select('ifg_pages_content.id as id', 'ifg_pages_content.content_title as content_title', 'ifg_pages_content.content_body as content_body'
-                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
-                ->where('ifg_menu.menu_link_slug', '=', 'faq')->get();
+                , 'ifg_pages_content.picture as picture', 'ifg_menu.parent_id_kip as parent_id_kip', 'ifg_menu.menu_name as menu_name', 'ifg_menu.menu_link as menu_link', 'ifg_menu.menu_link_slug as menu_link_slug', 'ifg_menu.id as ifg_menu_id')
+                ->where('ifg_menu.menu_link_slug', '=', $name)->get();
         return view("page.faq", $data);
     }
 }

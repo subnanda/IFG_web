@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('index', [FrontendController::class, 'index']);
-Route::get('informasi', [FrontendController::class, 'informasi']);
-Route::get('profil', [FrontendController::class, 'profil']);
-Route::get('kontak', [FrontendController::class, 'kontak']);
-Route::get('jalur_pelayanan', [FrontendController::class, 'jalur_pelayanan']);
-Route::get('faq', [FrontendController::class, 'faq']);
+Route::get('informasi-ifg/{name}', [FrontendController::class, 'informasi_ifg']);
+Route::get('profile-ifg/{name}', [FrontendController::class, 'profile_ifg']);
+Route::get('alur-pengajuan-ifg/{name}', [FrontendController::class, 'alur_pengajuan_ifg']);
+Route::get('faq-ifg/{name}', [FrontendController::class, 'faq_ifg']);
 Route::get('menu/{name}', [FrontendController::class, 'menu']);
