@@ -46,40 +46,57 @@
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?= url('/') ?>"><img src="<?= url('image/logo.PNG'); ?>" alt="image" id="logo-web"></a>
-				<table>
+				<table style="width:auto;">
 					<tr>
-						<td>
+						<td align="right">
 							<div id="search_div">
-								<table>
+								<table style="width:100%;">
 									<tr>
-										<td>
-											<font class="fa fa-search" style="font-size:20px; cursor:pointer; margin-top:5px;" id="search_action"></font>
+										<td style="padding-left:10px;" align="left">
+											<font id="search_input"><input type="text" id="search_action2" class="form-control" placeholder="Pencarian" style="width:100%;"></font>
+											<div id="search_hasil2" style="position: absolute; width:47%;"></div>
 										</td>
-										<td style="padding-left:10px;">
-											<font id="search_input"><input type="text" class="form-control" placeholder="Pencarian"><font class="fa fa-close" style="font-size:20px; cursor:pointer; float:right; margin-top:-28px; margin-right:7px;" id="search_close"></font></font>
+										<td width="20">
+											<div class="fa fa-close" style="font-size:20px; cursor:pointer;" id="search_close"></div>
+											<font class="fa fa-search" style="font-size:20px; cursor:pointer; margin-top:5px;" id="search_click"></font>
 										</td>
 									</tr>
 								</table>
 							</div>
 						</td>
-						<td>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
-							<span></span>
-							<span></span>
-							<span></span>
-						</button>
+						<td style="width:50px;">
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
 						</td>
 					</tr>
 				</table>
 				
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+					<div style="padding-top:8px; margin-left:10%; width:80%; padding-left:20%; padding-right:20%; position:absolute;" id="search_input2">
+						<center>
+							<table style="width:100%;">
+								<tr>
+									<td>
+										<input type="text" class="form-control" placeholder="Pencarian" style="width:100%;" id="search_action1">
+										<div id="search_hasil1" style="position: absolute; width:47%;"></div>
+									</td>
+									<td width="20" style="padding-top:35px; padding-left:15px;">
+										<font class="fa fa-close" style="font-size:20px; cursor:pointer; float:right; margin-top:-28px; margin-right:7px; width:100%;" id="search_close2"></font>
+									</td>
+								</tr>
+							</table>	
+						</center>					
+					</div>
                     <ul class="navbar-nav" style="font-family:'Montserrat';">
                         <?php
 						$query = \App\Helpers\AppHelper::menu_parent();
 						foreach ($query as $row) {
 						$numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);	
 						?>
-						<li <?php if($numsub1){ echo 'class="nav-item dropdown"'; } ?>>
+						<li <?php if($numsub1){ echo 'class="nav-item dropdown search_div3"'; } else { echo 'class="search_div3"'; } ?>>
 							<a class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
 								<?php echo $row->menu_name; ?>
 							</a>
@@ -109,22 +126,10 @@
 							</ul>		
 							<?php } ?>			
 						</li>
-						<?php } ?>
-						<li style="padding-top:8px; padding-left:20px;">
-							<div id="search_div2">
-								<table>
-									<tr>
-										<td>
-											<font class="fa fa-search" style="font-size:20px; cursor:pointer;" id="search_action2"></font>
-										</td>
-										<td style="padding-left:10px;">
-											<font id="search_input2"><input type="text" class="form-control" placeholder="Pencarian"><font class="fa fa-close" style="font-size:20px; cursor:pointer; float:right; margin-top:-28px; margin-right:7px;" id="search_close2"></font></font>
-										</td>
-									</tr>
-								</table>
-							</div>					
-						</li>		
-
+						<?php } ?>		
+						<li style="padding-top:8px; padding-left:15px;" id="search_click2">
+							<font class="fa fa-search" style="font-size:20px; cursor:pointer;"></font>
+						</li>
                     </ul>
                 </div>
             </div>

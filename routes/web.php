@@ -21,3 +21,5 @@ Route::get('profile-ifg/{name}', [FrontendController::class, 'profile_ifg']);
 Route::get('alur-pengajuan-ifg/{name}', [FrontendController::class, 'alur_pengajuan_ifg']);
 Route::get('faq-ifg/{name}', [FrontendController::class, 'faq_ifg']);
 Route::get('menu/{name}', [FrontendController::class, 'menu']);
+Route::get('beranda/{name}', [FrontendController::class, 'index']);
+Route::post('searching', [FrontendController::class, 'searching']);

@@ -7,17 +7,18 @@
 				</div>
                 <div class="col-md-5 margin-bottom_30">
 				   <div style="margin-top:20px;">
+				   	   <?php
+					   $query = \App\Helpers\AppHelper::footer_company();
+					   foreach ($query as $row) {
+					   ?>
 				       <table>
 				           <tr>
 				               <td valign="top" style="padding-top:5px;">
 				                   <font class="fa fa-map-marker" style="color:#FFFFFF; font-size:25px;"></font>
 				               </td>
 				               <td style="padding-left:15px;">
-				                   <div style="color:#fff; font-size:15px; margin-bottom:3px;">PT Bahana Pembinaan Usaha Indonesia (Persero)</div>
-				                   <div style="color:#fff;">Gedung Graha CIMB Niaga, 18th Floor</div>
-				                   <div style="color:#fff;">Jl. Jendral Sudirman Kav.58</div>
-				                   <div style="color:#fff;">RT.5/RW.3, Senayan, Kebayoran Baru</div>
-				                   <div style="color:#fff;">Kota Jakarta Selatan, DKI Jakarta 12190</div>
+				                   <div style="color:#fff; font-size:15px; margin-bottom:3px;"><?php echo $row->content_title; ?></div>
+				                   <div style="color:#fff;"><?php echo $row->content_body; ?></div>
 				               </td>
 				           </tr>
 						   <!--
@@ -39,6 +40,7 @@
 				           </tr>
 						   -->
 				       </table>
+					   <?php } ?>
 				   </div>
 				</div>
 				<!--
@@ -83,7 +85,12 @@
 							   </div>		
 						   </td>
 						   <td style="padding-left:5px;">
-							   <div style="color:#fff; font-size:17px; margin-bottom:3px;">(+62) 021 2505080</div>
+						   		<?php
+								$query = \App\Helpers\AppHelper::footer_hubungi('Telepon');
+								foreach ($query as $row) {
+								?>
+						  	 	<div style="color:#fff; font-size:17px; margin-bottom:3px;"><?php echo $row->item_link; ?></div>
+								<?php } ?>
 						   </td>
 					   </tr>
 					   <tr>
@@ -96,7 +103,12 @@
 							   </div>		
 						   </td>
 						   <td style="padding-left:5px;">
-							   <div style="color:#fff; font-size:17px; margin-bottom:3px;">cs@ifg.id</div>
+						   	   <?php
+								$query = \App\Helpers\AppHelper::footer_hubungi('Email');
+								foreach ($query as $row) {
+							   ?>		
+							   <div style="color:#fff; font-size:17px; margin-bottom:3px;"><?php echo $row->item_link; ?></div>
+							   <?php } ?>
 						   </td>
 					   </tr>
 					</table>
@@ -109,34 +121,54 @@
 					<div>
 						<table>
 						  <tr>
+						    <?php
+							$query = \App\Helpers\AppHelper::footer_medsos('Instagram');
+							foreach ($query as $row) {
+							?>
 							<td>
-								<a href="https://" style="margin:5px 5px 5px 5px;" target="_blank">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
 									<div style="border:1px solid #fff; background-color:#fff; padding:7px 7px 5px 7px;">
 										<font class="fa fa-instagram" style="color:#000; font-size:27px;"></font>
 									</div>
 								</a>
 							</td>
+							<?php } ?>
+						    <?php
+							$query = \App\Helpers\AppHelper::footer_medsos('Facebook');
+							foreach ($query as $row) {
+							?>
 							<td style="padding-left:10px;">
-								<a href="https://" style="margin:5px 5px 5px 5px;" target="_blank">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
 									<div style="border:1px solid #fff; background-color:#fff; padding:7px 10px 5px 10px;">
 										<font class="fa fa-facebook" style="color:#000; font-size:27px;"></font>
 									</div>
 								</a>
 							</td>
+							<?php } ?>
+						    <?php
+							$query = \App\Helpers\AppHelper::footer_medsos('Twitter');
+							foreach ($query as $row) {
+							?>
 							<td style="padding-left:10px;">
-								<a href="https://" style="margin:5px 5px 5px 5px;" target="_blank">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
 									<div style="border:1px solid #fff; background-color:#fff; padding:7px 7px 5px 7px;">
 										<font class="fa fa-twitter" style="color:#000; font-size:27px;"></font>
 									</div>
 								</a>
 							</td>
+							<?php } ?>
+						    <?php
+							$query = \App\Helpers\AppHelper::footer_medsos('Linkedln');
+							foreach ($query as $row) {
+							?>
 							<td style="padding-left:10px;">
-								<a href="https://" style="margin:5px 5px 5px 5px;" target="_blank">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
 									<div style="border:1px solid #fff; background-color:#fff; padding:9px 9px 9px 9px;">
 										<img src="<?= url('image/linkedin.png"'); ?> width="20px;">
 									</div>
 								</a>
 							</td>
+							<?php } ?>
 						  </tr>
 						</table>
 					</div>
@@ -176,20 +208,33 @@
         $('#myModal').modal('show');
     });
 
-	$("#search_action").click(function(){
+	$("#search_click").click(function(){
 		$("#search_input").show(500);
+		$("#search_action").hide();
+		$("#search_close").show();
+		$("#search_click").hide();
 	});	
 
 	$("#search_close").click(function(){
 		$("#search_input").hide(500);
+		$("#search_action").show();
+		$("#search_close").hide();
+		$("#search_click").show();
 	});	
 
-	$("#search_action2").click(function(){
+	$("#search_click2").click(function(){
 		$("#search_input2").show(500);
+		$(".search_div3").hide(500);
+		$(this).parent().find('#search_input2').css('width', '100%');
+		$("#search_action2").hide(500);
+		$("#search_click2").hide();
 	});	
 
 	$("#search_close2").click(function(){
 		$("#search_input2").hide(500);
+		$(".search_div3").show(500);
+		$("#search_action2").show(500);
+		$("#search_click2").show();
 	});	
 
     $(document).ready(function() {
@@ -197,6 +242,132 @@
 		  format: 'yyyy-mm-dd'
 		});
 		$('.timepicker').timepicker();
+
+		$("#search_action1").keyup(function() {
+			var html = "";
+			$("#search_hasil1").empty();
+			var pencarian = $("#search_action1").val();
+			if(pencarian && pencarian.length > 0){				
+				$.ajax({
+					url: "<?= url('searching') ?>",
+					method: "POST",
+					data: {
+						'_token': '<?= csrf_token() ?>',
+						'pencarian': pencarian
+					},
+					success: function(data) {
+						$("#search_hasil1").empty();
+						var html_null = '<div id="search_hasil1"></div>';
+						$("#search_hasil1").append(html_null);
+						var html = '<div id="overflow">';
+						var no = 1;
+						var url = "<?php echo url('/'); ?>";
+						$.each(data, function(i, item) {
+							var konten = data[i].content_body;
+							var konten = konten.substring(0, 80);
+							var title = data[i].content_title;
+							html +=
+								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+							no++;
+						});
+						html += '</div>';
+
+						$("#search_hasil1").append(html);
+					}
+				})
+			} else {
+				$("#search_hasil1").empty();
+				var html_null = '<div id="search_hasil1"></div>';
+				$("#search_hasil1").append(html_null);
+			}
+		})
+
+	});	
+
+    $(document).ready(function() {
+		$('.datepicker').datepicker({
+		  format: 'yyyy-mm-dd'
+		});
+		$('.timepicker').timepicker();
+
+		$("#search_action1").keyup(function() {
+			var html = "";
+			$("#search_hasil1").empty();
+			var pencarian = $("#search_action1").val();
+			if(pencarian && pencarian.length > 0){				
+				$.ajax({
+					url: "<?= url('searching') ?>",
+					method: "POST",
+					data: {
+						'_token': '<?= csrf_token() ?>',
+						'pencarian': pencarian
+					},
+					success: function(data) {
+						$("#search_hasil1").empty();
+						var html_null = '<div id="search_hasil1"></div>';
+						$("#search_hasil1").append(html_null);
+						var html = '<div id="overflow">';
+						var no = 1;
+						var url = "<?php echo url('/'); ?>";
+						$.each(data, function(i, item) {
+							var konten = data[i].content_body;
+							var konten = konten.substring(0, 80);
+							var title = data[i].content_title;
+							html +=
+								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+							no++;
+						});
+						html += '</div>';
+
+						$("#search_hasil1").append(html);
+					}
+				})
+			} else {
+				$("#search_hasil1").empty();
+				var html_null = '<div id="search_hasil1"></div>';
+				$("#search_hasil1").append(html_null);
+			}
+		})
+
+		$("#search_action2").keyup(function() {
+			var html = "";
+			$("#search_hasil2").empty();
+			var pencarian = $("#search_action2").val();
+			if(pencarian && pencarian.length > 0){				
+				$.ajax({
+					url: "<?= url('searching') ?>",
+					method: "POST",
+					data: {
+						'_token': '<?= csrf_token() ?>',
+						'pencarian': pencarian
+					},
+					success: function(data) {
+						$("#search_hasil2").empty();
+						var html_null = '<div id="search_hasil2"></div>';
+						$("#search_hasil2").append(html_null);
+						var html = '<div id="overflow">';
+						var no = 1;
+						var url = "<?php echo url('/'); ?>";
+						$.each(data, function(i, item) {
+							var konten = data[i].content_body;
+							var konten = konten.substring(0, 80);
+							var title = data[i].content_title;
+							html +=
+								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+							no++;
+						});
+						html += '</div>';
+
+						$("#search_hasil2").append(html);
+					}
+				})
+			} else {
+				$("#search_hasil2").empty();
+				var html_null = '<div id="search_hasil2"></div>';
+				$("#search_hasil2").append(html_null);
+			}
+		})
+
 	});	
 	
 	(function ($) {

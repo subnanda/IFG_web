@@ -56,4 +56,30 @@ class AppHelper
         ->select('id', 'menu_name', 'parent_id_kip', 'menu_link', 'menu_link_slug')
         ->where('id', '=', $a)->get();    
     }
+
+    public static function footer_company()
+    {
+        return DB::table('ifg_pages_content')
+            ->select('content_title', 'content_body')
+            ->where('id', '=', 22)
+            ->get();
+    }
+
+    public static function footer_hubungi($a)
+    {
+        return DB::table('ifg_pages_content_list_item')
+            ->select('item_body', 'item_link')
+            ->where('item_type', '=', 'HBK')
+            ->where('item_body', '=', $a)
+            ->get();
+    }
+
+    public static function footer_medsos($a)
+    {
+        return DB::table('ifg_pages_content_list_item')
+            ->select('item_body', 'item_link')
+            ->where('item_type', '=', 'IKM')
+            ->where('item_body', '=', $a)
+            ->get();
+    }
 }

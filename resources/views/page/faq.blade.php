@@ -41,7 +41,7 @@
             <div class="centered">
                <div style="font-weight:bold;" id="title-menu"><?php echo $rowcontent->menu_name; ?></div>
                 <div style="line-height:1.2;" id="detail-menu">
-                <?php if($parent2){ echo '<a href="'.url($parent_link2).'" style="color:#fff;">'.$parent2.'</a>'; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } if($parent1){ echo '<a href="'.url($parent_link1).'" style="color:#fff;">'.$parent1; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } echo '<a href="'.url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug).'" style="color:#fff;">'.$rowcontent->menu_name; ?>
+                <?php if($parent2){ echo ''.$parent2.''; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } if($parent1){ echo ''.$parent1; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } echo '<a href="'.url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug).'" style="color:#fff;">'.$rowcontent->menu_name.'</a>'; ?>
                 </div>
             </div>
         </div>
