@@ -3516,3 +3516,21 @@ transform: translate(-50%, -50%);
 #search_close{
   display: none;
 }
+
+.submenu-div {
+	padding:15px 15px 15px 25px; 
+	background-color:#A8A8A8; 
+	color:#333; 
+	font-weight:600;
+}
+
+.submenu-div:hover {
+	padding:15px 15px 15px 25px; 
+	background-color:#919191; 
+	color:#fff; 
+	font-weight:600;
+}
+
+.panel-body:hover{
+	color:#fff; 
+}

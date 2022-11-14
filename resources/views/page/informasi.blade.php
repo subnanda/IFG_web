@@ -51,7 +51,7 @@
 	<div>
         <div style="width:95%; margin-top:-75px;">
             <div class="row">
-                <div class="col-md-3" id="side_div">
+            <div class="col-md-3" id="side_div">
                     <div class="full">
                         <div class="panel-group" id="accordion">
                           <?php
@@ -63,23 +63,38 @@
                             $numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);
                             //echo $numsub1.' '.$rowcontent->parent_id_kip;	
                           ?>
-                          <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#E5E5E5;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px; color:#000000; font-weight:600;"<?php } ?>>
+                          <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
-                                    
                                     <?php if($numsub1){ ?>
-                                        <font style="<?php if($numsub1){ if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} else { if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; } } ?>"><?php echo $row->menu_name; ?></font> 
-                                        <font class="fa fa-chevron-down" style="float:right; margin-top:8px;"></font>
+                                        <table style="width:100%;">
+                                            <tr>
+                                                <td style="width:100%;">
+                                                <font style="<?php if($numsub1){ if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} else { if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff; line-height:1.3;'; } else { echo 'line-height:1.3;'; } } ?>"><?php echo $row->menu_name; ?></font> 
+                                                </td>
+                                                <td width="30" valign="top">
+                                                <font class="fa fa-chevron-down" style="float:right; margin-top:8px;"></font>    
+                                                </td>
+                                            </tr>
+                                        </table>
                                     <?php } else { ?>
-                                        <div style="<?php if($numsub1){ if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} else { if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; } } ?>"><?php echo $row->menu_name; ?></div> 
-                                        <div style="float:right; position:absolute; margin-top:-40px; margin-left:78%;">
-                                            <?php 
-                                            if($rowcontent->menu_link_slug == $row->menu_link_slug){
-                                            ?>
-                                            <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
-                                            <?php } ?>
-                                        </div>
+                                        <table style="width:100%;">
+                                            <tr>
+                                                <td style="width:100%;">
+                                                    <div style="<?php if($numsub1){ if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} else { if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff; line-height:1.3;'; } else { echo 'line-height:1.3;'; } } ?>"><?php echo $row->menu_name; ?></div>
+                                                </td>
+                                                <td width="30" valign="top">
+                                                    <?php 
+                                                    if($rowcontent->menu_link_slug == $row->menu_link_slug){
+                                                    ?>
+                                                    <div style="margin-top:-7px;">
+                                                    <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                    </div>
+                                                    <?php } ?>    
+                                                </td>
+                                            </tr>
+                                        </table>
                                     <?php } ?>
                                 </a>
 							  </div>
@@ -88,29 +103,35 @@
                             if($numsub1){
                             ?>
 							<div id="collapse<?php echo $row->id; ?>" class="panel-collapse collapse <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'show'; } ?>">
-								<div style="background-color:#999999; color:#FFFFFF;">
+								<div style="background-color:#A8A8A8; color:#A8A8A8;">
                                   <?php
                                     $query2 = \App\Helpers\AppHelper::menu_child($row->id);
                                     foreach ($query2 as $row2) {		
                                   ?>
-								  <div class="panel-body" style="padding:15px 15px 15px 25px; background-color:#666666;"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>" style="color:#fff;"><?php echo $row2->menu_name; ?></a></div>
-								  <div style="border:0.5px solid #E5E5E5; width:100%;"></div>
+								  <div class="submenu-div"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>"><?php echo $row2->menu_name; ?></a></div>
+								  <div style="border:0.5px solid #999999; width:100%;"></div>
                                   <?php } ?>
 								</div>
 							</div>
                             <?php } ?>
 						  </div>
-						  <div style="border:0.5px solid #ffff; width:100%;"></div>
+						  <!-- <div style="border:0.5px solid #ffff; width:100%;"></div> -->
                           <?php } ?>
                           <?php } else { ?>
                           <div class="panel panel-default">
-							<div class="panel-heading" style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px; color:#ffffff;">
+							<div class="panel-heading" style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff;">
 							  <div class="panel-title">
 								<a href="<?= url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug); ?>" style="font-size:16px; font-weight:600;">
-                                    <div style="color:#ffffff;"><?php echo $rowcontent->menu_name; ?></div> 
-                                    <div style="float:right; position:absolute; margin-top:-40px; margin-left:77.5%;">
-                                        <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
-                                    </div>
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td style="width:100%;">
+                                                <div style="color:#ffffff;"><?php echo $rowcontent->menu_name; ?></div>
+                                            </td>
+                                            <td width="30" valign="top">
+                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;"> 
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </a>
 							  </div>
 							</div>   

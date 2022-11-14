@@ -19,7 +19,7 @@
         foreach($card as $row){    
         ?>
         .part-pointer<?php echo $i; ?>{
-        background-image: linear-gradient(#CC0000, #ff0000, #CC0000); 
+        background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); 
         color:#FFFFFF; 
         padding:18px; 
         position:absolute; 
@@ -29,6 +29,22 @@
         display:none;
         }
         <?php $i++; } ?>
+
+        .carousel-control-next-icon2 {
+            border-radius:25%;
+            background-color: rgba(255, 255, 255, 0.5); 
+            width:20px;
+            height:20px;
+            margin-right:50px;
+        }
+
+        .carousel-control-prev-icon2 {
+            border-radius:25%;
+            background-color: rgba(255, 255, 255, 0.5); 
+            width:20px;
+            height:20px;
+            margin-left:50px;
+        }
     </style>
     @endsection	
     @section('content')
@@ -131,41 +147,58 @@
         
 			<div class="row" style="margin-top:35px;">
 			     
-                <?php
-                $i = 1;
-                foreach($card as $row){    
-                ?>
-			    <div class="col-lg-3 col-md-3 col-sm-6 part-pointer-hover<?php echo $i; ?>" style="margin-bottom:20px;">
-                    <div class="part-pointer<?php echo $i; ?>">
-                        <div style="float:right;">
-                            <img src="<?= url('image/serong.png'); ?>" style="height:20px;">
-                        </div>
-                        <center>
-                            <div style="margin-top:35px;">
-                                <!-- <div class="line-width"></div> -->
-                                <h2 style="color:#FFFFFF; font-weight:bold;"><?php echo $row->item_title; ?></h2>
-                                <div style="padding:15px; font-size:17px; line-height:1.4;">
-                                    <?php echo $row->item_body; ?>
+                
+                <div class="top-content">
+                    <div class="container-fluid">
+                        <div id="carousel-example2" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                                <?php 
+                                $i = 1;
+                                foreach($card as $row){
+                                ?>
+                                <div class="carousel-item col-lg-3 col-md-4 col-sm-6 col-12 part-pointer-hover<?php echo $i; ?> <?php if($i == 1){ ?>active<?php } ?>" style="margin-bottom:20px;">
+                                    <div class="part-pointer<?php echo $i; ?>">
+                                        <div style="float:right;">
+                                            <img src="<?= url('image/serong.png'); ?>" class="img-fluid mx-auto d-block" style="height:20px;">
+                                        </div>
+                                        <center>
+                                            <div style="margin-top:35px;">
+                                                <!-- <div class="line-width"></div> -->
+                                                <h2 style="color:#FFFFFF; font-weight:bold;"><?php echo $row->item_title; ?></h2>
+                                                <div style="padding:15px; font-size:17px; line-height:1.4;">
+                                                    <?php echo $row->item_body; ?>
+                                                </div>
+                                            </div>
+                                        </center>	
+                                    </div>
+                                    <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); border-radius:10px;">
+                                        <div>
+                                            <div>
+                                                <img class="img-fluid" src="{{ $url_cms.'/storage/files/'.$row->item_file }}" style="width:100%;" alt="#">
+                                            </div>
+                                            <div valign="top" style="padding-top:25px; padding-bottom:20px; background-image: linear-gradient(to right, #525252, #606060, #767676, #909090); ">
+                                                <center>
+                                                <h3 style="font-weight:bold; color:#FFFFFF;">
+                                                <?php echo $row->item_title; ?>
+                                                </h3>
+                                                </center> 
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <?php $i++; } ?>
                             </div>
-                        </center>	
-                    </div>
-                    <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); border-radius:10px;">
-                        <div>
-                            <div>
-                                <img class="img-fluid" src="{{ $url_cms.'/storage/files/'.$row->item_file }}" style="width:100%;" alt="#">
-                            </div>
-                            <div valign="top" style="padding-top:25px; padding-bottom:20px; background-image: linear-gradient(#454545, #868686, #454545); ">
-                                <center>
-                                <h3 style="font-weight:bold; color:#FFFFFF;">
-                                <?php echo $row->item_title; ?>
-                                </h3>
-                                </center> 
-                            </div>
+                            <a class="carousel-control-prev carousel-control-prev-icon2" href="#carousel-example2" role="button" data-slide="prev" style="margin-top:-15px; border-radius:50px;">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"><font class="fa fa-chevron-left"></font></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next carousel-control-next-icon2" href="#carousel-example2" role="button" data-slide="next" style="margin-top:-15px; border-radius:50px;">
+                                <span class="carousel-control-next-icon" aria-hidden="true"><font class="fa fa-chevron-right"></font></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-			    </div>
-			    <?php $i++; } ?>
+                </div>
 			   
 			</div>
         </div>
