@@ -47,11 +47,11 @@
         </div>
 	</div>
 	<?php } ?>
-	
+    
 	<div>
         <div style="width:95%; margin-top:-75px;">
             <div class="row">
-            <div class="col-md-3" id="side_div">
+                <div class="col-md-3" id="side_div">
                     <div class="full">
                         <div class="panel-group" id="accordion">
                           <?php
@@ -64,7 +64,7 @@
                             //echo $numsub1.' '.$rowcontent->parent_id_kip;	
                           ?>
                           <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     <?php if($numsub1){ ?>
@@ -103,13 +103,16 @@
                             if($numsub1){
                             ?>
 							<div id="collapse<?php echo $row->id; ?>" class="panel-collapse collapse <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'show'; } ?>">
-								<div style="background-color:#A8A8A8; color:#A8A8A8;">
+								<!-- <div style="background-color:#64656A; position: absolute;">
+                                    <img src="{{ url('image/serong-kanan.png') }}" class="img-fluid">
+                                </div> -->
+                                <div style="color:#fff; background-color:#64656A;">
                                   <?php
                                     $query2 = \App\Helpers\AppHelper::menu_child($row->id);
                                     foreach ($query2 as $row2) {		
                                   ?>
-								  <div class="submenu-div"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>"><?php echo $row2->menu_name; ?></a></div>
-								  <div style="border:0.5px solid #999999; width:100%;"></div>
+								  <div class="submenu-div"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>" class="submenu-div-menu"><?php echo $row2->menu_name; ?></a></div>
+								  <!-- <div style="border:0.5px solid #999999; width:100%;"></div> -->
                                   <?php } ?>
 								</div>
 							</div>
@@ -119,7 +122,7 @@
                           <?php } ?>
                           <?php } else { ?>
                           <div class="panel panel-default">
-							<div class="panel-heading" style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff;">
+							<div class="panel-heading" style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24) padding:15px 8px 15px 8px; color:#ffffff;">
 							  <div class="panel-title">
 								<a href="<?= url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug); ?>" style="font-size:16px; font-weight:600;">
                                     <table style="width:100%;">

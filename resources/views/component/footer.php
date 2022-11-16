@@ -188,6 +188,21 @@
 	<script src="<?= asset('assets/js/popper.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
     <!-- ALL PLUGINS -->
+	<script>
+	$(document).ready(function(){	
+		$("#chat-open").click(function(){
+			$("#chat-box").show(100);
+			$("#chat-open").hide();
+			$("#chat-close").show();
+		});	
+
+		$("#chat-close").click(function(){
+			$("#chat-box").hide(100);
+			$("#chat-open").show();
+			$("#chat-close").hide();
+		});	
+	});
+	</script>
     <script src="<?= asset('assets/js/jquery.magnific-popup.min.js') ?>"></script>
     <script src="<?= asset('assets/js/jquery.pogo-slider.min.js') ?>"></script>
     <script src="<?= asset('assets/js/slider-index.js') ?>"></script>
@@ -197,14 +212,36 @@
     <script src="<?= asset('assets/js/isotope.min.js') ?>"></script>
     <script src="<?= asset('assets/js/images-loded.min.js') ?>"></script>
     <script src="<?= asset('assets/js/custom.js') ?>"></script>
-    <script src="<?= asset('assets/slider/multislider.js') ?>"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
     
     <script>
+	$('#myCarousel').carousel({
+		interval: 10000
+	})
+
+	$('.carousel .carousel-item').each(function() {
+		var minPerSlide = 4;
+		var next = $(this).next();
+		if (!next.length) {
+			next = $(this).siblings(':first');
+		}
+		next.children(':first-child').clone().appendTo($(this));
+
+		for (var i = 0; i < minPerSlide; i++) {
+			next = next.next();
+			if (!next.length) {
+				next = $(this).siblings(':first');
+			}
+
+			next.children(':first-child').clone().appendTo($(this));
+		}
+	});
+	
     $(document).ready(function(){
+		slider_card();
         $('#myModal').modal('show');
     });
 
