@@ -14,21 +14,6 @@
 
     @section('style')
     <style>
-        .carousel-control-next-icon2 {
-            border-radius:25%;
-            background-color: rgba(255, 255, 255, 0.5); 
-            width:20px;
-            height:20px;
-            margin-right:50px;
-        }
-
-        .carousel-control-prev-icon2 {
-            border-radius:25%;
-            background-color: rgba(255, 255, 255, 0.5); 
-            width:20px;
-            height:20px;
-            margin-left:50px;
-        }
         <?php
         $i = 1;
         foreach($card as $row){    
@@ -58,143 +43,6 @@
         display:none;
         }
         <?php $i++; } ?>
-
-        @media (min-width: 768px) {
-
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(50%);
-        }
-
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-50%);
-        }
-        }
-
-        /* large - display 3 */
-        @media (min-width: 992px) {
-
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(50%);
-        }
-
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-50%);
-        }
-        }
-
-        @media (max-width: 768px) {
-        .carousel-inner .carousel-item>div {
-            display: none;
-        }
-
-        .carousel-inner .carousel-item>div:first-child {
-            display: block;
-        }
-        }
-
-        .carousel-inner .carousel-item.active,
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
-        display: flex;
-        }
-
-        .carousel-inner .carousel-item-right,
-        .carousel-inner .carousel-item-left {
-        transform: translateX(0);
-        }
-
-
-
-        img {
-        vertical-align: middle;
-        }
-
-        /* Position the image container (needed to position the left and right arrows) */
-        .container {
-        position: relative;
-        }
-
-        /* Hide the images by default */
-        .mySlides {
-        display: none;
-        }
-
-        /* Add a pointer when hovering over the thumbnail images */
-        .cursor {
-        cursor: pointer;
-        }
-
-        /* Next & previous buttons */
-        .prev,
-        .next {
-        cursor: pointer;
-        position: absolute;
-        top: 40%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-        }
-
-        /* Position the "next button" to the right */
-        .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-        }
-
-        /* On hover, add a black background color with a little bit see-through */
-        .prev:hover,
-        .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-        }
-
-        /* Container for image text */
-        .caption-container {
-        text-align: center;
-        background-color: #222;
-        padding: 2px 16px;
-        color: white;
-        }
-
-        .row:after {
-        content: "";
-        display: table;
-        clear: both;
-        }
-
-        /* Six columns side by side */
-        .column {
-        float: left;
-        width: 16.66%;
-        }
-
-        /* Add a transparency effect for thumnbail images */
-        .demo {
-        opacity: 0.6;
-        }
-
-        .active,
-        .demo:hover {
-        opacity: 1;
-        }
     </style>
     @endsection	
     @section('content')
@@ -318,34 +166,36 @@
 
                                 <div class="carousel-item <?php if($i == 1){ ?>active<?php } ?>" style="margin-bottom:20px;">
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-12 part-pointer-hover<?php echo $i; ?>">
-                                        <div class="part-pointer<?php echo $i; ?>">
-                                            <div style="float:right;">
-                                                <img src="<?= url('image/serong.png'); ?>" class="img-fluid mx-auto d-block" style="height:20px;">
+                                        <a href="<?php echo url($row->item_link); ?>">
+                                            <div class="part-pointer<?php echo $i; ?>">
+                                                <div style="float:right;">
+                                                    <img src="<?= url('image/serong.png'); ?>" class="img-fluid mx-auto d-block" style="height:20px;">
+                                                </div>
+                                                <center>
+                                                    <div style="margin-top:35px;">
+                                                        <!-- <div class="line-width"></div> -->
+                                                        <h2 style="color:#FFFFFF; font-weight:bold;"><?php echo $row->item_title; ?></h2>
+                                                        <div style="padding:15px; font-size:17px; line-height:1.4;">
+                                                            <?php echo $row->item_body; ?>
+                                                        </div>
+                                                    </div>
+                                                </center>	
                                             </div>
-                                            <center>
-                                                <div style="margin-top:35px;">
-                                                    <!-- <div class="line-width"></div> -->
-                                                    <h2 style="color:#FFFFFF; font-weight:bold;"><?php echo $row->item_title; ?></h2>
-                                                    <div style="padding:15px; font-size:17px; line-height:1.4;">
-                                                        <?php echo $row->item_body; ?>
+                                            <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); border-radius:10px;">
+                                                <div>
+                                                    <div>
+                                                        <img class="img-fluid" src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width:100%;" alt="#">
+                                                    </div>
+                                                    <div valign="top" style="padding-top:25px; padding-bottom:20px; background-image: linear-gradient(to right, #525252, #606060, #767676, #909090); ">
+                                                        <center>
+                                                        <h3 style="font-weight:bold; color:#FFFFFF;">
+                                                        <?php echo $row->item_title; ?>
+                                                        </h3>
+                                                        </center> 
                                                     </div>
                                                 </div>
-                                            </center>	
-                                        </div>
-                                        <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.10); border-radius:10px;">
-                                            <div>
-                                                <div>
-                                                    <img class="img-fluid" src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width:100%;" alt="#">
-                                                </div>
-                                                <div valign="top" style="padding-top:25px; padding-bottom:20px; background-image: linear-gradient(to right, #525252, #606060, #767676, #909090); ">
-                                                    <center>
-                                                    <h3 style="font-weight:bold; color:#FFFFFF;">
-                                                    <?php echo $row->item_title; ?>
-                                                    </h3>
-                                                    </center> 
-                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <?php $i++; } ?>

@@ -64,7 +64,7 @@
                             //echo $numsub1.' '.$rowcontent->parent_id_kip;	
                           ?>
                           <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     <?php if($numsub1){ ?>
@@ -119,7 +119,7 @@
                           <?php } ?>
                           <?php } else { ?>
                           <div class="panel panel-default">
-							<div class="panel-heading" style="background-image: linear-gradient(#CC0000, #ff0000, #CC0000); padding:15px 8px 15px 8px; color:#ffffff;">
+							<div class="panel-heading" style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff;">
 							  <div class="panel-title">
 								<a href="<?= url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug); ?>" style="font-size:16px; font-weight:600;">
                                     <table style="width:100%;">
@@ -200,26 +200,26 @@
 							   </tr>
 							</table>
 						</div> -->
-                        <h2 style="color:#000000; font-size:23px; font-weight:bold;">
+                        <!-- <h2 style="color:#ff0000; font-size:23px; font-weight:bold;">
 							<?php echo $parent1; ?>
-						</h2>
+						</h2> -->
                         <?php
                         foreach($content as $row){
                         ?>
-						<div style="color:#000000; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
-                            <?php echo strip_tags($row->content_body); ?>
-						</div>
 						<h2 style="color:#ff0000; font-size:23px; font-weight:bold;">
 							<?php echo $row->content_title; ?>
 						</h2>
-						<div class="panel-group" id="accordion" style="margin-top:10px;">
+						<div style="color:#000000; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
+                            <?php echo $row->content_body; ?>
+						</div>
+						<!-- <div class="panel-group" id="accordion" style="margin-top:10px;">
                           <?php
                           $no = 1;
                           $query2 = \App\Helpers\AppHelper::select_ifg_pages_content_list_item($row->id);
                           foreach ($query2 as $row2) {	
                           ?>
                             <a style="color:#000; font-size:15px;" href="<?= url('storage/files/'.$row2->item_link); ?>" target="_blank">
-                                <div class="panel panel-default" style="background-color:#fff; box-shadow: 0 0 2px 2px #ccc; margin-bottom:20px;">
+                                <div class="panel panel-default" style="background-color:#fff; box-shadow: 0 0 1px 1px #ccc; margin-bottom:20px;">
                                 <div class="panel-title">
                                     <table style="width:100%;">
                                         <tr>
@@ -239,7 +239,7 @@
                             </a>
                           <?php $no++; } ?>
 						</div>
-                        <?php } ?>
+                        <?php } ?> -->
                     </div>
                 </div>
             </div>

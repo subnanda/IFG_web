@@ -344,7 +344,7 @@ button:focus {
 }
 
 .top-header .navbar .navbar-collapse ul li a {
-	font-size: 15px;
+	font-size: 13px;
 	padding: 7px 20px;
 	position: relative;
 	font-weight: bold;
@@ -3588,7 +3588,7 @@ transform: translate(-50%, -50%);
 	#chat-box {
 		position:fixed;
 		right: 2.7%;
-		font-size:12px;
+		font-size:11px;
 		z-index:1; 
 		color:#333333;
 		top:24%; 
@@ -3622,7 +3622,7 @@ transform: translate(-50%, -50%);
 	#chat-box {
 		position:fixed;
 		right: 5%;
-		font-size:12px; 
+		font-size:11px; 
 		z-index:1; 
 		color:#333333;
 		top:23%; 
@@ -3650,4 +3650,208 @@ transform: translate(-50%, -50%);
 #chat-close{
 	cursor: pointer;
 	display:none;
+}
+
+@media (min-width: 701px) {  
+	#title-popup{
+		font-weight:600; 
+		color:#000000; 
+		padding-left:11%; 
+		padding-right:11%; 
+		margin-top:20px; 
+		font-size:18px; 
+		line-height:1.4;
+	}
+
+	#info-popup{
+		color:#000000; 
+		padding-left:10%; 
+		padding-right:10%; 
+		margin-top:20px; 
+		margin-bottom:20px; 
+		font-weight:500; 
+		font-size:14px; 
+		text-align:justify; 
+		line-height:1.3;
+	}
+}
+
+@media (max-width: 700px) {  
+	#title-popup{
+		font-weight:600; 
+		color:#000000; 
+		padding-left:7%; 
+		padding-right:7%; 
+		margin-top:20px; 
+		font-size:16px; 
+		line-height:1.4;
+	}
+
+	#info-popup{
+		color:#000000; 
+		padding-left:4%; 
+		padding-right:4%; 
+		margin-top:20px; 
+		margin-bottom:20px; 
+		font-weight:500; 
+		font-size:14px; 
+		text-align:justify; 
+		line-height:1.3;
+	}
+}
+
+@media (max-width: 991px) {
+	#search_click2{
+		display:none;
+	}
+}
+
+.carousel-control-next-icon2 {
+	border-radius:25%;
+	background-color: rgba(255, 255, 255, 0.5); 
+	width:20px;
+	height:20px;
+	margin-right:50px;
+}
+
+.carousel-control-prev-icon2 {
+	border-radius:25%;
+	background-color: rgba(255, 255, 255, 0.5); 
+	width:20px;
+	height:20px;
+	margin-left:50px;
+}
+@media (min-width: 768px) {
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+	transform: translateX(50%);
+}
+
+.carousel-inner .carousel-item-left.active,
+.carousel-inner .carousel-item-prev {
+	transform: translateX(-50%);
+}
+}
+
+/* large - display 3 */
+@media (min-width: 992px) {
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+	transform: translateX(50%);
+}
+
+.carousel-inner .carousel-item-left.active,
+.carousel-inner .carousel-item-prev {
+	transform: translateX(-50%);
+}
+}
+
+@media (max-width: 768px) {
+.carousel-inner .carousel-item>div {
+	display: none;
+}
+
+.carousel-inner .carousel-item>div:first-child {
+	display: block;
+}
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+display: flex;
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+transform: translateX(0);
+}
+
+img {
+vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 48%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: white;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+text-align: center;
+background-color: #222;
+padding: 2px 16px;
+color: white;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Six columns side by side */
+.column {
+float: left;
+width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+opacity: 1;
 }

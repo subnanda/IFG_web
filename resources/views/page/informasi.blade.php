@@ -164,7 +164,7 @@
                           foreach ($query2 as $row2) {	
                           ?>
                             <a style="color:#000; font-size:15px;" href="<?= url('storage/files/'.$row2->item_link); ?>" target="_blank">
-                                <div class="panel panel-default" style="background-color:#fff; box-shadow: 0 0 2px 2px #ccc; margin-bottom:20px;">
+                                <div class="panel panel-default" style="background-color:#fff; box-shadow: 0 0 1px 1px #ccc; margin-bottom:20px;">
                                 <div class="panel-title">
                                     <table style="width:100%;">
                                         <tr>

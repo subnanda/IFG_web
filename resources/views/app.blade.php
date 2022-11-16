@@ -29,17 +29,17 @@
         </div>
         <div id="padding-chat1">
             <div id="padding-chat2">
-                <div>Nama</div>
+                <div style="padding-left:13px;">Nama</div>
                 <div style="margin-bottom:15px;">
-                    <input type="text" class="form-control" placeholder="Silakan masukan Nama Anda">
+                    <input type="text" class="form-control" style="font-size:13px;" placeholder="Silakan masukan Nama Anda">
                 </div>
-                <div>Email</div>
+                <div style="padding-left:13px;">Email</div>
                 <div style="margin-bottom:15px;">
-                    <input type="text" class="form-control" placeholder="Silakan masukan Email Anda">
+                    <input type="text" class="form-control" style="font-size:13px;" placeholder="Silakan masukan Email Anda">
                 </div>
-                <div>Pesan</div>
+                <div style="padding-left:13px;">Pesan</div>
                 <div style="margin-bottom:15px;">
-                    <textarea placeholder="Silakan masukan Pesan Anda" style="height: 100px; resize:none;" class="form-control"></textarea>
+                    <textarea placeholder="Silakan masukan Pesan Anda" style="height: 100px; font-size:13px; resize:none;" class="form-control"></textarea>
                 </div>
                 <div>
                     <center>

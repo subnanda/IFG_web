@@ -11,13 +11,15 @@ class AppHelper
     {
         return DB::table('ifg_menu')
         ->select('*')
-        ->where('parent_id_kip', '=', 0)->get();
+        ->where('parent_id_kip', '=', 0)
+        ->where('is_hidden', '=', 'N')->get();
     }
 
     public static function menu_child($a)
     {
         return DB::table('ifg_menu')
             ->select('*')
+            ->where('is_hidden', '=', 'N')
             ->where('parent_id_kip', '=', $a)->get();
     }
 
@@ -25,6 +27,7 @@ class AppHelper
     {
         return DB::table('ifg_menu')
             ->select('id')
+            ->where('is_hidden', '=', 'N')
             ->where('parent_id_kip', '=', $a)->count();
     }
 
@@ -41,12 +44,14 @@ class AppHelper
         $parent = '';
         $query = DB::table('ifg_menu')
             ->select('parent_id_kip')
+            ->where('is_hidden', '=', 'N')
             ->where('id', '=', $a)->get();
         foreach ($query as $row) {
             $parent = $row->parent_id_kip;
         }
         return DB::table('ifg_menu')
         ->select('id', 'menu_name')
+        ->where('is_hidden', '=', 'N')
         ->where('id', '=', $parent)->get();    
     }
 
@@ -54,6 +59,7 @@ class AppHelper
     {
         return DB::table('ifg_menu')
         ->select('id', 'menu_name', 'parent_id_kip', 'menu_link', 'menu_link_slug')
+        ->where('is_hidden', '=', 'N')
         ->where('id', '=', $a)->get();    
     }
 

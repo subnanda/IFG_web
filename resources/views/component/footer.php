@@ -202,83 +202,8 @@
 			$("#chat-close").hide();
 		});	
 	});
-	</script>
-    <script src="<?= asset('assets/js/jquery.magnific-popup.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/jquery.pogo-slider.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/slider-index.js') ?>"></script>
-    <script src="<?= asset('assets/js/smoothscroll.js') ?>"></script>
-    <script src="<?= asset('assets/js/form-validator.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/contact-form-script.js') ?>"></script>
-    <script src="<?= asset('assets/js/isotope.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/images-loded.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/custom.js') ?>"></script>
 	
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
-    
-    <script>
-	$('#myCarousel').carousel({
-		interval: 10000
-	})
-
-	$('.carousel .carousel-item').each(function() {
-		var minPerSlide = 4;
-		var next = $(this).next();
-		if (!next.length) {
-			next = $(this).siblings(':first');
-		}
-		next.children(':first-child').clone().appendTo($(this));
-
-		for (var i = 0; i < minPerSlide; i++) {
-			next = next.next();
-			if (!next.length) {
-				next = $(this).siblings(':first');
-			}
-
-			next.children(':first-child').clone().appendTo($(this));
-		}
-	});
-	
-    $(document).ready(function(){
-		slider_card();
-        $('#myModal').modal('show');
-    });
-
-	$("#search_click").click(function(){
-		$("#search_input").show(500);
-		$("#search_action").hide();
-		$("#search_close").show();
-		$("#search_click").hide();
-	});	
-
-	$("#search_close").click(function(){
-		$("#search_input").hide(500);
-		$("#search_action").show();
-		$("#search_close").hide();
-		$("#search_click").show();
-	});	
-
-	$("#search_click2").click(function(){
-		$("#search_input2").show(500);
-		$(".search_div3").hide(500);
-		$(this).parent().find('#search_input2').css('width', '100%');
-		$("#search_action2").hide(500);
-		$("#search_click2").hide();
-	});	
-
-	$("#search_close2").click(function(){
-		$("#search_input2").hide(500);
-		$(".search_div3").show(500);
-		$("#search_action2").show(500);
-		$("#search_click2").show();
-	});	
-
-    $(document).ready(function() {
-		$('.datepicker').datepicker({
-		  format: 'yyyy-mm-dd'
-		});
-		$('.timepicker').timepicker();
+	$(document).ready(function() {
 
 		$("#search_action1").keyup(function() {
 			var html = "";
@@ -322,10 +247,6 @@
 	});	
 
     $(document).ready(function() {
-		$('.datepicker').datepicker({
-		  format: 'yyyy-mm-dd'
-		});
-		$('.timepicker').timepicker();
 
 		$("#search_action1").keyup(function() {
 			var html = "";
@@ -406,209 +327,320 @@
 		})
 
 	});	
-	
-	(function ($) {
-		$.fn.countTo = function (options) {
-			options = options || {};
+	</script>
+
+	<div class="modal" id="mypopup" style="margin-top:9%;">
+		<div class="modal-dialog modal-lg">
 			
-			return $(this).each(function () {
-				// set options for current element
-				var settings = $.extend({}, $.fn.countTo.defaults, {
-					from:            $(this).data('from'),
-					to:              $(this).data('to'),
-					speed:           $(this).data('speed'),
-					refreshInterval: $(this).data('refresh-interval'),
-					decimals:        $(this).data('decimals')
-				}, options);
-				
-				// how many times to update the value, and how much to increment the value on each update
-				var loops = Math.ceil(settings.speed / settings.refreshInterval),
-					increment = (settings.to - settings.from) / loops;
-				
-				// references & variables that will change with each update
-				var self = this,
-					$self = $(this),
-					loopCount = 0,
-					value = settings.from,
-					data = $self.data('countTo') || {};
-				
-				$self.data('countTo', data);
-				
-				// if an existing interval can be found, clear it first
-				if (data.interval) {
-					clearInterval(data.interval);
-				}
-				data.interval = setInterval(updateTimer, settings.refreshInterval);
-				
-				// initialize the element with the starting value
-				render(value);
-				
-				function updateTimer() {
-					value += increment;
-					loopCount++;
-					
-					render(value);
-					
-					if (typeof(settings.onUpdate) == 'function') {
-						settings.onUpdate.call(self, value);
-					}
-					
-					if (loopCount >= loops) {
-						// remove the interval
-						$self.removeData('countTo');
-						clearInterval(data.interval);
-						value = settings.to;
-						
-						if (typeof(settings.onComplete) == 'function') {
-							settings.onComplete.call(self, value);
-						}
-					}
-				}
-				
-				function render(value) {
-					var formattedValue = settings.formatter.call(self, value, settings);
-					$self.html(formattedValue);
-				}
-			});
-		};
-		
-		$.fn.countTo.defaults = {
-			from: 0,               // the number the element should start at
-			to: 0,                 // the number the element should end at
-			speed: 1000,           // how long it should take to count between the target numbers
-			refreshInterval: 100,  // how often the element should be updated
-			decimals: 0,           // the number of decimal places to show
-			formatter: formatter,  // handler for formatting the value before rendering
-			onUpdate: null,        // callback method for every time the element is updated
-			onComplete: null       // callback method for when the element finishes updating
-		};
-		
-		function formatter(value, settings) {
-			return value.toFixed(settings.decimals);
-		}
-	}(jQuery));
+			<div style="float:right; position:absolute; z-index:100; right:0px; margin-top:-15px; margin-right:-15px; cursor:pointer;">
+				<button type="button" class="btn" data-dismiss="modal" style="background-color:#fff; color:#ff0000; z-index:100; padding:4px 7px 4px 7px; cursor:pointer;"><font class="fa fa-close" style="font-weight:normal; font-size:25px;"></font></button>
+			</div>
+			
+			<div class="modal-content" style="padding:10px;">
+
+			<!-- Modal Header -->
+			<div style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding-top:15px; padding-bottom:15px;">
+				<center><div class="modal-title" style="color: #fff; font-weight:bold; font-size:24px;">Pemberitahuan</div></center>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div id="title-popup">
+					<center>
+					Kewaspadaan Terhadap Upaya Penipuan Atas Nama PPID Indonesia Financial Group (IFG) & Subsdiaries 
+					</center>
+				</div>
+				<div id="info-popup">
+					Dalam penerapan kebijakan dan penyebaran informasi keterbukaan milik Indonesia Financial Group dapat di akses di https://ifg.id/id/public-information/about. Selain dari sumber website diatas, pihak IFG tidak bertanggung jawab dalam segala bentuk infomasi yang disampaikan.
+				</div>
+			</div>
+			<div style="margin-top:-13%;">
+				<img src="<?= url('image/serong_popup.png') ?>" style="width:200px;">
+			</div>
+
+			</div>
+		</div>
+	</div>
+
+    <script src="<?= asset('assets/js/jquery.magnific-popup.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/jquery.pogo-slider.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/slider-index.js') ?>"></script>
+    <script src="<?= asset('assets/js/smoothscroll.js') ?>"></script>
+    <script src="<?= asset('assets/js/form-validator.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/contact-form-script.js') ?>"></script>
+    <script src="<?= asset('assets/js/isotope.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/images-loded.min.js') ?>"></script>
+    <script src="<?= asset('assets/js/custom.js') ?>"></script>
 	
-	jQuery(function ($) {
-	  // custom formatting example
-	  $('.count-number').data('countToOptions', {
-		formatter: function (value, options) {
-		  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
+    
+    <script>
+	$('#myCarousel').carousel({
+		interval: 10000
+	})
+
+	$('.carousel .carousel-item').each(function() {
+		var minPerSlide = 4;
+		var next = $(this).next();
+		if (!next.length) {
+			next = $(this).siblings(':first');
 		}
-	  });
-	  
-	  // start all the timers
-	  $('.timer').each(count);  
-	  
-	  function count(options) {
-		var $this = $(this);
-		options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-		$this.countTo(options);
-	  }
+		next.children(':first-child').clone().appendTo($(this));
+
+		for (var i = 0; i < minPerSlide; i++) {
+			next = next.next();
+			if (!next.length) {
+				next = $(this).siblings(':first');
+			}
+
+			next.children(':first-child').clone().appendTo($(this));
+		}
 	});
 	
-    $(document).ready(function() {
-		$('.datepicker').datepicker({
-		  format: 'yyyy-mm-dd'
-		});
-		$('.timepicker').timepicker();
+    $(document).ready(function(){
+		slider_card();
+        $('#mypopup').modal('show');
+    });
+
+	$("#search_click").click(function(){
+		$("#logo-web").hide();
+		$("#search_input").show(500);
+		$("#search_action").hide();
+		$("#search_close").show();
+		$("#search_click").hide();
+		$("#width-search").css("width", "100%");
+		$("#width-search").css("margin-top", "-10px");
+	});	
+
+	$("#search_close").click(function(){
+		$("#search_input").hide(500);
+		$("#logo-web").show();
+		$("#search_action").show();
+		$("#search_close").hide();
+		$("#search_click").show();
+		$("#width-search").css("width", "auto");
+		$("#width-search").css("margin-top", "");
+	});	
+
+	$("#search_click2").click(function(){
+		$("#search_input2").show(500);
+		$(".search_div3").hide(500);
+		$(this).parent().find('#search_input2').css('width', '100%');
+		$("#search_action2").hide(500);
+		$("#search_click2").hide();
+	});	
+
+	$("#search_close2").click(function(){
+		$("#search_input2").hide(500);
+		$(".search_div3").show(500);
+		$("#search_action2").show(500);
+		$("#search_click2").show();
 	});	
 	
-	(function ($) {
-		$.fn.countTo = function (options) {
-			options = options || {};
+	// (function ($) {
+	// 	$.fn.countTo = function (options) {
+	// 		options = options || {};
 			
-			return $(this).each(function () {
-				// set options for current element
-				var settings = $.extend({}, $.fn.countTo.defaults, {
-					from:            $(this).data('from'),
-					to:              $(this).data('to'),
-					speed:           $(this).data('speed'),
-					refreshInterval: $(this).data('refresh-interval'),
-					decimals:        $(this).data('decimals')
-				}, options);
+	// 		return $(this).each(function () {
+	// 			// set options for current element
+	// 			var settings = $.extend({}, $.fn.countTo.defaults, {
+	// 				from:            $(this).data('from'),
+	// 				to:              $(this).data('to'),
+	// 				speed:           $(this).data('speed'),
+	// 				refreshInterval: $(this).data('refresh-interval'),
+	// 				decimals:        $(this).data('decimals')
+	// 			}, options);
 				
-				// how many times to update the value, and how much to increment the value on each update
-				var loops = Math.ceil(settings.speed / settings.refreshInterval),
-					increment = (settings.to - settings.from) / loops;
+	// 			// how many times to update the value, and how much to increment the value on each update
+	// 			var loops = Math.ceil(settings.speed / settings.refreshInterval),
+	// 				increment = (settings.to - settings.from) / loops;
 				
-				// references & variables that will change with each update
-				var self = this,
-					$self = $(this),
-					loopCount = 0,
-					value = settings.from,
-					data = $self.data('countTo') || {};
+	// 			// references & variables that will change with each update
+	// 			var self = this,
+	// 				$self = $(this),
+	// 				loopCount = 0,
+	// 				value = settings.from,
+	// 				data = $self.data('countTo') || {};
 				
-				$self.data('countTo', data);
+	// 			$self.data('countTo', data);
 				
-				// if an existing interval can be found, clear it first
-				if (data.interval) {
-					clearInterval(data.interval);
-				}
-				data.interval = setInterval(updateTimer, settings.refreshInterval);
+	// 			// if an existing interval can be found, clear it first
+	// 			if (data.interval) {
+	// 				clearInterval(data.interval);
+	// 			}
+	// 			data.interval = setInterval(updateTimer, settings.refreshInterval);
 				
-				// initialize the element with the starting value
-				render(value);
+	// 			// initialize the element with the starting value
+	// 			render(value);
 				
-				function updateTimer() {
-					value += increment;
-					loopCount++;
+	// 			function updateTimer() {
+	// 				value += increment;
+	// 				loopCount++;
 					
-					render(value);
+	// 				render(value);
 					
-					if (typeof(settings.onUpdate) == 'function') {
-						settings.onUpdate.call(self, value);
-					}
+	// 				if (typeof(settings.onUpdate) == 'function') {
+	// 					settings.onUpdate.call(self, value);
+	// 				}
 					
-					if (loopCount >= loops) {
-						// remove the interval
-						$self.removeData('countTo');
-						clearInterval(data.interval);
-						value = settings.to;
+	// 				if (loopCount >= loops) {
+	// 					// remove the interval
+	// 					$self.removeData('countTo');
+	// 					clearInterval(data.interval);
+	// 					value = settings.to;
 						
-						if (typeof(settings.onComplete) == 'function') {
-							settings.onComplete.call(self, value);
-						}
-					}
-				}
+	// 					if (typeof(settings.onComplete) == 'function') {
+	// 						settings.onComplete.call(self, value);
+	// 					}
+	// 				}
+	// 			}
 				
-				function render(value) {
-					var formattedValue = settings.formatter.call(self, value, settings);
-					$self.html(formattedValue);
-				}
-			});
-		};
+	// 			function render(value) {
+	// 				var formattedValue = settings.formatter.call(self, value, settings);
+	// 				$self.html(formattedValue);
+	// 			}
+	// 		});
+	// 	};
 		
-		$.fn.countTo.defaults = {
-			from: 0,               // the number the element should start at
-			to: 0,                 // the number the element should end at
-			speed: 1000,           // how long it should take to count between the target numbers
-			refreshInterval: 100,  // how often the element should be updated
-			decimals: 0,           // the number of decimal places to show
-			formatter: formatter,  // handler for formatting the value before rendering
-			onUpdate: null,        // callback method for every time the element is updated
-			onComplete: null       // callback method for when the element finishes updating
-		};
+	// 	$.fn.countTo.defaults = {
+	// 		from: 0,               // the number the element should start at
+	// 		to: 0,                 // the number the element should end at
+	// 		speed: 1000,           // how long it should take to count between the target numbers
+	// 		refreshInterval: 100,  // how often the element should be updated
+	// 		decimals: 0,           // the number of decimal places to show
+	// 		formatter: formatter,  // handler for formatting the value before rendering
+	// 		onUpdate: null,        // callback method for every time the element is updated
+	// 		onComplete: null       // callback method for when the element finishes updating
+	// 	};
 		
-		function formatter(value, settings) {
-			return value.toFixed(settings.decimals);
-		}
-	}(jQuery));
+	// 	function formatter(value, settings) {
+	// 		return value.toFixed(settings.decimals);
+	// 	}
+	// }(jQuery));
 	
-	jQuery(function ($) {
-	  // custom formatting example
-	  $('.count-number').data('countToOptions', {
-		formatter: function (value, options) {
-		  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-		}
-	  });
+	// jQuery(function ($) {
+	//   // custom formatting example
+	//   $('.count-number').data('countToOptions', {
+	// 	formatter: function (value, options) {
+	// 	  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+	// 	}
+	//   });
 	  
-	  // start all the timers
-	  $('.timer').each(count);  
+	//   // start all the timers
+	//   $('.timer').each(count);  
 	  
-	  function count(options) {
-		var $this = $(this);
-		options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-		$this.countTo(options);
-	  }
-	});
+	//   function count(options) {
+	// 	var $this = $(this);
+	// 	options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+	// 	$this.countTo(options);
+	//   }
+	// });
+	
+    // $(document).ready(function() {
+	// 	$('.datepicker').datepicker({
+	// 	  format: 'yyyy-mm-dd'
+	// 	});
+	// 	$('.timepicker').timepicker();
+	// });	
+	
+	// (function ($) {
+	// 	$.fn.countTo = function (options) {
+	// 		options = options || {};
+			
+	// 		return $(this).each(function () {
+	// 			// set options for current element
+	// 			var settings = $.extend({}, $.fn.countTo.defaults, {
+	// 				from:            $(this).data('from'),
+	// 				to:              $(this).data('to'),
+	// 				speed:           $(this).data('speed'),
+	// 				refreshInterval: $(this).data('refresh-interval'),
+	// 				decimals:        $(this).data('decimals')
+	// 			}, options);
+				
+	// 			// how many times to update the value, and how much to increment the value on each update
+	// 			var loops = Math.ceil(settings.speed / settings.refreshInterval),
+	// 				increment = (settings.to - settings.from) / loops;
+				
+	// 			// references & variables that will change with each update
+	// 			var self = this,
+	// 				$self = $(this),
+	// 				loopCount = 0,
+	// 				value = settings.from,
+	// 				data = $self.data('countTo') || {};
+				
+	// 			$self.data('countTo', data);
+				
+	// 			// if an existing interval can be found, clear it first
+	// 			if (data.interval) {
+	// 				clearInterval(data.interval);
+	// 			}
+	// 			data.interval = setInterval(updateTimer, settings.refreshInterval);
+				
+	// 			// initialize the element with the starting value
+	// 			render(value);
+				
+	// 			function updateTimer() {
+	// 				value += increment;
+	// 				loopCount++;
+					
+	// 				render(value);
+					
+	// 				if (typeof(settings.onUpdate) == 'function') {
+	// 					settings.onUpdate.call(self, value);
+	// 				}
+					
+	// 				if (loopCount >= loops) {
+	// 					// remove the interval
+	// 					$self.removeData('countTo');
+	// 					clearInterval(data.interval);
+	// 					value = settings.to;
+						
+	// 					if (typeof(settings.onComplete) == 'function') {
+	// 						settings.onComplete.call(self, value);
+	// 					}
+	// 				}
+	// 			}
+				
+	// 			function render(value) {
+	// 				var formattedValue = settings.formatter.call(self, value, settings);
+	// 				$self.html(formattedValue);
+	// 			}
+	// 		});
+	// 	};
+		
+	// 	$.fn.countTo.defaults = {
+	// 		from: 0,               // the number the element should start at
+	// 		to: 0,                 // the number the element should end at
+	// 		speed: 1000,           // how long it should take to count between the target numbers
+	// 		refreshInterval: 100,  // how often the element should be updated
+	// 		decimals: 0,           // the number of decimal places to show
+	// 		formatter: formatter,  // handler for formatting the value before rendering
+	// 		onUpdate: null,        // callback method for every time the element is updated
+	// 		onComplete: null       // callback method for when the element finishes updating
+	// 	};
+		
+	// 	function formatter(value, settings) {
+	// 		return value.toFixed(settings.decimals);
+	// 	}
+	// }(jQuery));
+	
+	// jQuery(function ($) {
+	//   // custom formatting example
+	//   $('.count-number').data('countToOptions', {
+	// 	formatter: function (value, options) {
+	// 	  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+	// 	}
+	//   });
+	  
+	//   // start all the timers
+	//   $('.timer').each(count);  
+	  
+	//   function count(options) {
+	// 	var $this = $(this);
+	// 	options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+	// 	$this.countTo(options);
+	//   }
+	// });
 </script>
