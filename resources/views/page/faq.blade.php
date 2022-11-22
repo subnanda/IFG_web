@@ -56,6 +56,12 @@
                         <div class="panel-group" id="accordion">
                           <?php
                           foreach($content as $rowcontent){
+                            $parent_1 = $rowcontent->parent_id_kip;
+                            $num_parent2 = 0;
+                            if($parent_1){
+                                $num_parent2 = \App\Helpers\AppHelper::menu_child_num2($parent_1); 
+                            }
+                            if($num_parent2 == 0){
                             $numsub0 = \App\Helpers\AppHelper::menu_child_num($rowcontent->ifg_menu_id);	
                             if($numsub0 > 0 or $rowcontent->parent_id_kip > 0){
                             $query = \App\Helpers\AppHelper::menu_child($rowcontent->parent_id_kip);
@@ -103,13 +109,16 @@
                             if($numsub1){
                             ?>
 							<div id="collapse<?php echo $row->id; ?>" class="panel-collapse collapse <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ echo 'show'; } ?>">
-								<div style="background-color:#A8A8A8; color:#33333;">
+								<!-- <div style="background-color:#64656A; position: absolute;">
+                                    <img src="{{ url('image/serong-kanan.png') }}" class="img-fluid">
+                                </div> -->
+                                <div style="color:#fff; background-color:#424242;">
                                   <?php
                                     $query2 = \App\Helpers\AppHelper::menu_child($row->id);
                                     foreach ($query2 as $row2) {		
                                   ?>
-								  <div class="submenu-div"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>"><?php echo $row2->menu_name; ?></a></div>
-								  <div style="border:0.5px solid #999999; width:100%;"></div>
+								  <div class="submenu-div"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>" class="submenu-div-menu"><?php echo $row2->menu_name; ?></a></div>
+								  <!-- <div style="border:0.5px solid #999999; width:100%;"></div> -->
                                   <?php } ?>
 								</div>
 							</div>
@@ -136,6 +145,65 @@
 							  </div>
 							</div>   
                           </div>   
+                          <?php } ?>
+                          <?php 
+                          } else { 
+                            $query_2 = \App\Helpers\AppHelper::menu_child2($parent_1); 
+                            foreach ($query_2 as $rowcontent2) {	
+                            $numsub0 = \App\Helpers\AppHelper::menu_child_num($rowcontent2->ifg_menu_id);	
+                            $query = \App\Helpers\AppHelper::menu_child($rowcontent2->ifg_menu_id);
+                            foreach ($query as $row) {	
+                            $numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);  
+                          ?>
+                          
+                          <div class="panel panel-default" <?php if($rowcontent2->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							  <div class="panel-title">
+								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
+                                    
+                                    <table style="width:100%;">
+                                        <tr>
+                                            <td style="width:100%;">
+                                            <font style="<?php if($numsub1){ if($rowcontent2->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} else { if($rowcontent2->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff; line-height:1.3;'; } else { echo 'line-height:1.3;'; } } ?>"><?php echo $row->menu_name; ?></font> 
+                                            </td>
+                                            <?php if($numsub1){ ?>
+                                            <td width="30" valign="top">
+                                            <font class="fa fa-chevron-down" style="float:right; margin-top:8px; <?php if($numsub1){ if($rowcontent2->menu_link_slug == $row->menu_link_slug){ echo 'color:#ffffff;'; }} ?>"></font>    
+                                            </td>
+                                            <td width="30" valign="top">
+                                                <div style="margin-top:-7px;">
+                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                </div>    
+                                            </td>
+                                            <?php } ?>
+                                        </tr>
+                                    </table>
+                                    
+                                </a>
+							  </div>
+							</div>
+                            <?php
+                            if($numsub1){
+                            ?>
+							<div id="collapse<?php echo $row->id; ?>" class="panel-collapse collapse <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ echo 'show'; } ?>">
+								<!-- <div style="background-color:#64656A; position: absolute;">
+                                    <img src="{{ url('image/serong-kanan.png') }}" class="img-fluid">
+                                </div> -->
+                                <div style="color:#fff;">
+                                  <?php
+                                    $query2 = \App\Helpers\AppHelper::menu_child($row->id);
+                                    foreach ($query2 as $row2) {		
+                                  ?>
+								  <div class="submenu-div" style="<?php if($rowcontent->menu_link_slug == $row2->menu_link_slug){ echo 'background-color:#64656A;'; } ?>"><a href="<?= url($row->menu_link.'/'.$row2->menu_link_slug); ?>" class="submenu-div-menu" style="<?php if($rowcontent->menu_link_slug == $row2->menu_link_slug){ echo 'color:#fff;'; } ?>"><?php echo $row2->menu_name; ?></a></div>
+								  <!-- <div style="border:0.5px solid #999999; width:100%;"></div> -->
+                                  <?php } ?>
+								</div>
+							</div>
+                            <?php } ?>
+						  </div>
+						  <!-- <div style="border:0.5px solid #ffff; width:100%;"></div> -->
+                          
+                          <?php }} ?>
                           <?php }} ?>
 						</div>
                     </div>
@@ -149,7 +217,7 @@
 							<?php echo $row->content_title; ?>
 						</h2>
 						<div style="color:#000000; font-size:18px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
-                            <?php echo strip_tags($row->content_body); ?>
+                            <?php echo $row->content_body; ?>
 						</div>
 						<div class="panel-group" id="accordion" style="margin-top:20px;">
                           <div class="panel-group" id="accordion">

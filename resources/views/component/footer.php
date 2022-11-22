@@ -1,9 +1,12 @@
 	<!-- Start Footer -->
-    <footer class="footer-box" style="background-color:#191919;">
+    <?php
+    $url_cms = 'http://10.1.19.105';
+    ?>
+    <footer class="footer-box footer-div">
         <div style="width:90%; padding-left:5%;">
             <div class="row">
 				<div class="col-md-12">
-				   <a href=""><img src="<?= url('image/logo-white.pn'); ?>g" alt="image" style="height:70px;"></a>
+				   <a href=""><img src="<?= url('image/logo-white.pn'); ?>g" alt="image" style="height:57px; width:113px;"></a>
 				</div>
                 <div class="col-md-5 margin-bottom_30">
 				   <div style="margin-top:20px;">
@@ -17,107 +20,62 @@
 				                   <font class="fa fa-map-marker" style="color:#FFFFFF; font-size:25px;"></font>
 				               </td>
 				               <td style="padding-left:15px;">
-				                   <div style="color:#fff; font-size:15px; margin-bottom:3px;"><?php echo $row->content_title; ?></div>
+				                   <div style="color:#fff; font-size:14px; margin-bottom:3px;"><?php echo $row->content_title; ?></div>
 				                   <div style="color:#fff;"><?php echo $row->content_body; ?></div>
 				               </td>
 				           </tr>
-						   <!--
-				           <tr>
-				               <td valign="top">
-				                   <font class="fa fa-phone" style="color:#FFFFFF;"></font>
-				               </td>
-				               <td style="padding-left:5px;">
-				                   <div style="color:#fff; font-size:15px; margin-bottom:3px;">(+62) 021 2505080</div>
-				               </td>
-				           </tr>
-				           <tr>
-				               <td valign="top">
-				                   <font class="fa fa-map-marker" style="color:#FFFFFF;"></font>
-				               </td>
-				               <td style="padding-left:5px;">
-				                   <div style="color:#fff; font-size:15px; margin-bottom:3px;">cs@ifg.id</div>
-				               </td>
-				           </tr>
-						   -->
 				       </table>
 					   <?php } ?>
 				   </div>
 				</div>
-				<!--
-				<div class="col-md-3 text-left" style="margin-bottom:35px;">
-			     <div class="footer_blog footer_menu">
-				    <div style="font-weight:bold; color:#FFF; font-size:21px; margin-bottom:7px;">Profil EPPID IFG</div>
-				    <div>
-						<ul> 
-							<li><a href=""><font style="font-size:16px; color:#FFF;">Tentang EPPID IFG</font></a></li>
-							<li><a href=""><font style="font-size:16px; color:#FFF;">Jalur dan Waktu Pelayanan</font></a></li>
-						</ul>
-					</div>
-					<div style="height:20px;"></div>
-				    <div style="font-weight:bold; color:#FFF; font-size:21px; margin-bottom:7px;">Informasi</div>
-					<div>
-						<ul> 
-							<li><a href=""><font style="font-size:16px; color:#FFF;">Informasi Berkala</font></a></li>
-							<li><a href=""><font style="font-size:16px; color:#FFF;">Informasi Tersedia Setiap Saat</font></a></li>
-							<li><a href=""><font style="font-size:16px; color:#FFF;">Informasi Serta Merta</font></a></li>
-						</ul>
-					</div>	
-				 </div>
-				</div>
-                
-                <div class="col-md-3 text-left">
-				    <div style="color:#000000; font-size:17px; margin-bottom:-15px;">
-				    	<div style="font-weight:bold; color:#FFF; font-size:21px; margin-bottom:7px;">Alur Pengajuan KIP</div>
-						<div style="color:#FFF; line-height:1.3;">Alur Pengajuan Informasi Publik Indonesia Financial Group</div>
-						<div style="color:#FFF; line-height:1.3; margin-top:15px;">Alur Pengajuan Keberatan Publik Indonesia Financial Group</div>
-				    </div>
-                </div>
-				-->
-                <div class="col-md-4 text-left">
+                <div class="col-md-4 text-left" style="margin-bottom:40px;">
 				    <div style="font-weight:bold; color:#000000; font-size:17px; margin-bottom:15px;">
-				    	<div style="font-weight:bold; color:#FFF; font-size:21px; margin-bottom:7px;">Hubungi Kami</div>
+				    	<div style="font-weight:bold; color:#FFF; font-size:14px; margin-bottom:7px;">Hubungi Kami</div>
 				    </div>
 					<table>
+					   <?php
+						$query = \App\Helpers\AppHelper::footer_hubungi('Telepon');
+						foreach ($query as $row) {
+					   ?>
 					   <tr>
 						   <td valign="top">
-						   	   <div style="border:1px solid #fff; background-color:#fff; padding:5px 8px 1px 8px;">
-							   		<font class="fa fa-phone" style="color:#000; font-size:20px;"></font>
+						   	   <div style="padding:5px 8px 1px 8px; cursor:pointer;">
+									<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 							   </div>		
 						   </td>
 						   <td style="padding-left:5px;">
-						   		<?php
-								$query = \App\Helpers\AppHelper::footer_hubungi('Telepon');
-								foreach ($query as $row) {
-								?>
-						  	 	<div style="color:#fff; font-size:17px; margin-bottom:3px;"><?php echo $row->item_link; ?></div>
-								<?php } ?>
+						  	 	<div style="color:#fff; font-size:11px; margin-bottom:3px; cursor:pointer;"><?php echo $row->item_link; ?></div>
 						   </td>
 					   </tr>
+						<?php } ?>
 					   <tr>
 					   		<td colspan="2" height="10"></td>
 					   </tr>
+					   <?php
+						$query = \App\Helpers\AppHelper::footer_hubungi('Email');
+						foreach ($query as $row) {
+						?>	
 					   <tr>
 						   <td valign="top">
-						   	   <div style="border:1px solid #fff; background-color:#fff; padding:5px 8px 1px 8px;">
-							   		<font class="fa fa-envelope" style="color:#000; font-size:20px;"></font>
+						   	   <div style="padding:5px 8px 1px 8px; cursor:pointer;">
+									<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 							   </div>		
 						   </td>
-						   <td style="padding-left:5px;">
-						   	   <?php
-								$query = \App\Helpers\AppHelper::footer_hubungi('Email');
-								foreach ($query as $row) {
-							   ?>		
-							   <div style="color:#fff; font-size:17px; margin-bottom:3px;"><?php echo $row->item_link; ?></div>
-							   <?php } ?>
-						   </td>
+						   <td style="padding-left:5px;">	
+							   <div style="color:#fff; font-size:11px; margin-bottom:3px; cursor:pointer;"><?php echo $row->item_link; ?></div>
+							</td>
 					   </tr>
+					   <?php } ?>
 					</table>
 				</div>
 				
-                <div class="col-md-3 text-left">
+                <div class="col-md-3 text-left" style=" z-index:5;">
 				    <div style="font-weight:bold; color:#000000; font-size:17px; margin-bottom:-15px;">
-				    	<div style="font-weight:bold; color:#FFF; font-size:21px; margin-bottom:7px;">Ikuti Kami</div>
+				    	<div style="font-weight:bold; color:#FFF; font-size:14px; margin-bottom:7px;">Ikuti Kami</div>
 				    </div>
+					<!-- <div id="logo-ifg-footer-position">
+						<img src="<?= url('image/ifg_white.png'); ?>" class="logo-ifg-footer">
+					</div> -->
 					<div>
 						<table>
 						  <tr>
@@ -126,9 +84,9 @@
 							foreach ($query as $row) {
 							?>
 							<td>
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
-									<div style="border:1px solid #fff; background-color:#fff; padding:7px 7px 5px 7px;">
-										<font class="fa fa-instagram" style="color:#000; font-size:27px;"></font>
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
+									<div>
+										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 									</div>
 								</a>
 							</td>
@@ -138,9 +96,9 @@
 							foreach ($query as $row) {
 							?>
 							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
-									<div style="border:1px solid #fff; background-color:#fff; padding:7px 10px 5px 10px;">
-										<font class="fa fa-facebook" style="color:#000; font-size:27px;"></font>
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
+									<div>
+										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 									</div>
 								</a>
 							</td>
@@ -150,9 +108,9 @@
 							foreach ($query as $row) {
 							?>
 							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
-									<div style="border:1px solid #fff; background-color:#fff; padding:7px 7px 5px 7px;">
-										<font class="fa fa-twitter" style="color:#000; font-size:27px;"></font>
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
+									<div>
+										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 									</div>
 								</a>
 							</td>
@@ -162,18 +120,15 @@
 							foreach ($query as $row) {
 							?>
 							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px;" target="_blank">
-									<div style="border:1px solid #fff; background-color:#fff; padding:9px 9px 9px 9px;">
-										<img src="<?= url('image/linkedin.png"'); ?> width="20px;">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
+									<div>
+										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 									</div>
 								</a>
 							</td>
 							<?php } ?>
 						  </tr>
 						</table>
-					</div>
-					<div style="position:absolute; margin-top:-210px; margin-left:-150px;">
-						<img src="<?= url('image/ifg_white.png'); ?>" style="width:500px;">
 					</div>
                 </div>
                 <div class="col-12">
@@ -187,8 +142,52 @@
     <script src="<?= asset('assets/js/jquery.min.js') ?>"></script>
 	<script src="<?= asset('assets/js/popper.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
+	<script src="<?= asset('assets/js/slippry.js') ?>"></script>
+	<script>
+	$(function() {
+		var demo1 = $("#demo1").slippry({
+			transition: 'fade',
+			useCSS: true,
+			speed: 800,
+			pause: 8000,
+			auto: true,
+			preload: 'visible',
+			autoHover: false
+		});
+
+		$('.stop').click(function () {
+			demo1.stopAuto();
+		});
+
+		$('.start').click(function () {
+			demo1.startAuto();
+		});
+
+		$('.prev').click(function () {
+			demo1.goToPrevSlide();
+			return false;
+		});
+		$('.next').click(function () {
+			demo1.goToNextSlide();
+			return false;
+		});
+		$('.reset').click(function () {
+			demo1.destroySlider();
+			return false;
+		});
+		$('.reload').click(function () {
+			demo1.reloadSlider();
+			return false;
+		});
+		$('.init').click(function () {
+			demo1 = $("#demo1").slippry();
+			return false;
+		});
+	});
+	</script>
     <!-- ALL PLUGINS -->
 	<script>
+
 	$(document).ready(function(){	
 		$("#chat-open").click(function(){
 			$("#chat-box").show(100);
@@ -203,164 +202,169 @@
 		});	
 	});
 	
-	$(document).ready(function() {
+	// $(document).ready(function() {
 
-		$("#search_action1").keyup(function() {
-			var html = "";
-			$("#search_hasil1").empty();
-			var pencarian = $("#search_action1").val();
-			if(pencarian && pencarian.length > 0){				
-				$.ajax({
-					url: "<?= url('searching') ?>",
-					method: "POST",
-					data: {
-						'_token': '<?= csrf_token() ?>',
-						'pencarian': pencarian
-					},
-					success: function(data) {
-						$("#search_hasil1").empty();
-						var html_null = '<div id="search_hasil1"></div>';
-						$("#search_hasil1").append(html_null);
-						var html = '<div id="overflow">';
-						var no = 1;
-						var url = "<?php echo url('/'); ?>";
-						$.each(data, function(i, item) {
-							var konten = data[i].content_body;
-							var konten = konten.substring(0, 80);
-							var title = data[i].content_title;
-							html +=
-								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-							no++;
-						});
-						html += '</div>';
+	// 	$("#search_action1").keyup(function() {
+	// 		var html = "";
+	// 		$("#search_hasil1").empty();
+	// 		var pencarian = $("#search_action1").val();
+	// 		if(pencarian && pencarian.length > 0){				
+	// 			$.ajax({
+	// 				url: "<?= url('searching') ?>",
+	// 				method: "POST",
+	// 				data: {
+	// 					'_token': '<?= csrf_token() ?>',
+	// 					'pencarian': pencarian
+	// 				},
+	// 				success: function(data) {
+	// 					$("#search_hasil1").empty();
+	// 					var html_null = '<div id="search_hasil1"></div>';
+	// 					$("#search_hasil1").append(html_null);
+	// 					var html = '<div id="overflow">';
+	// 					var no = 1;
+	// 					var url = "<?php echo url('/'); ?>";
+	// 					$.each(data, function(i, item) {
+	// 						var konten = data[i].content_body;
+	// 						var konten = konten.substring(0, 80);
+	// 						var title = data[i].content_title;
+	// 						html +=
+	// 							'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+	// 						no++;
+	// 					});
+	// 					html += '</div>';
 
-						$("#search_hasil1").append(html);
-					}
-				})
-			} else {
-				$("#search_hasil1").empty();
-				var html_null = '<div id="search_hasil1"></div>';
-				$("#search_hasil1").append(html_null);
-			}
-		})
+	// 					$("#search_hasil1").append(html);
+	// 				}
+	// 			})
+	// 		} else {
+	// 			$("#search_hasil1").empty();
+	// 			var html_null = '<div id="search_hasil1"></div>';
+	// 			$("#search_hasil1").append(html_null);
+	// 		}
+	// 	})
 
-	});	
+	// });	
+
+	function search_input(a) {
+		//alert(a);
+		if(a != ''){
+			$.ajax({
+				url: "<?= url('searching') ?>",
+				method: "POST",
+				data: {
+					'_token': '<?= csrf_token() ?>',
+					'pencarian': a
+				},
+				success: function(data) {
+					$("#search_hasil1").html(data);
+				}
+			});
+		} else {
+			document.getElementById('search_hasil1').innerHTML = '<div id="search_hasil1" style="position: absolute; width:47%;"></div>';
+		}
+	}
+
+	function search_input2(a) {
+		//alert(a);
+		if(a != ''){
+			$.ajax({
+				url: "<?= url('searching2') ?>",
+				method: "POST",
+				data: {
+					'_token': '<?= csrf_token() ?>',
+					'pencarian': a
+				},
+				success: function(data) {
+					$("#search_hasil2").html(data);
+				}
+			})
+		} else {
+			document.getElementById('search_hasil2').innerHTML = '<div id="search_hasil2" style="position: absolute; width:47%;"></div>';
+		}
+	}
 
     $(document).ready(function() {
 
-		$("#search_action1").keyup(function() {
-			var html = "";
-			$("#search_hasil1").empty();
-			var pencarian = $("#search_action1").val();
-			if(pencarian && pencarian.length > 0){				
-				$.ajax({
-					url: "<?= url('searching') ?>",
-					method: "POST",
-					data: {
-						'_token': '<?= csrf_token() ?>',
-						'pencarian': pencarian
-					},
-					success: function(data) {
-						$("#search_hasil1").empty();
-						var html_null = '<div id="search_hasil1"></div>';
-						$("#search_hasil1").append(html_null);
-						var html = '<div id="overflow">';
-						var no = 1;
-						var url = "<?php echo url('/'); ?>";
-						$.each(data, function(i, item) {
-							var konten = data[i].content_body;
-							var konten = konten.substring(0, 80);
-							var title = data[i].content_title;
-							html +=
-								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-							no++;
-						});
-						html += '</div>';
+		// $("#search_action1").keyup(function() {
+		// 	var html = "";
+		// 	$("#search_hasil1").empty();
+		// 	var pencarian = $("#search_action1").val();
+		// 	if(pencarian && pencarian.length > 0){				
+		// 		$.ajax({
+		// 			url: "<?= url('searching') ?>",
+		// 			method: "POST",
+		// 			data: {
+		// 				'_token': '<?= csrf_token() ?>',
+		// 				'pencarian': pencarian
+		// 			},
+		// 			success: function(data) {
+		// 				$("#search_hasil1").empty();
+		// 				var html_null = '<div id="search_hasil1"></div>';
+		// 				$("#search_hasil1").append(html_null);
+		// 				var html = '<div id="overflow">';
+		// 				var no = 1;
+		// 				var url = "<?php echo url('/'); ?>";
+		// 				$.each(data, function(i, item) {
+		// 					var konten = data[i].content_body;
+		// 					var konten = konten.substring(0, 80);
+		// 					var title = data[i].content_title;
+		// 					html +=
+		// 						'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+		// 					no++;
+		// 				});
+		// 				html += '</div>';
 
-						$("#search_hasil1").append(html);
-					}
-				})
-			} else {
-				$("#search_hasil1").empty();
-				var html_null = '<div id="search_hasil1"></div>';
-				$("#search_hasil1").append(html_null);
-			}
-		})
+		// 				$("#search_hasil1").append(html);
+		// 			}
+		// 		})
+		// 	} else {
+		// 		$("#search_hasil1").empty();
+		// 		var html_null = '<div id="search_hasil1"></div>';
+		// 		$("#search_hasil1").append(html_null);
+		// 	}
+		// })
 
-		$("#search_action2").keyup(function() {
-			var html = "";
-			$("#search_hasil2").empty();
-			var pencarian = $("#search_action2").val();
-			if(pencarian && pencarian.length > 0){				
-				$.ajax({
-					url: "<?= url('searching') ?>",
-					method: "POST",
-					data: {
-						'_token': '<?= csrf_token() ?>',
-						'pencarian': pencarian
-					},
-					success: function(data) {
-						$("#search_hasil2").empty();
-						var html_null = '<div id="search_hasil2"></div>';
-						$("#search_hasil2").append(html_null);
-						var html = '<div id="overflow">';
-						var no = 1;
-						var url = "<?php echo url('/'); ?>";
-						$.each(data, function(i, item) {
-							var konten = data[i].content_body;
-							var konten = konten.substring(0, 80);
-							var title = data[i].content_title;
-							html +=
-								'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-							no++;
-						});
-						html += '</div>';
+		// $("#search_action2").keyup(function() {
+		// 	var html = "";
+		// 	$("#search_hasil2").empty();
+		// 	var pencarian = $("#search_action2").val();
+		// 	if(pencarian && pencarian.length > 0){				
+		// 		$.ajax({
+		// 			url: "<?= url('searching') ?>",
+		// 			method: "POST",
+		// 			data: {
+		// 				'_token': '<?= csrf_token() ?>',
+		// 				'pencarian': pencarian
+		// 			},
+		// 			success: function(data) {
+		// 				$("#search_hasil2").empty();
+		// 				var html_null = '<div id="search_hasil2"></div>';
+		// 				$("#search_hasil2").append(html_null);
+		// 				var html = '<div id="overflow">';
+		// 				var no = 1;
+		// 				var url = "<?php echo url('/'); ?>";
+		// 				$.each(data, function(i, item) {
+		// 					var konten = data[i].content_body;
+		// 					var konten = konten.substring(0, 80);
+		// 					var title = data[i].content_title;
+		// 					html +=
+		// 						'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
+		// 					no++;
+		// 				});
+		// 				html += '</div>';
 
-						$("#search_hasil2").append(html);
-					}
-				})
-			} else {
-				$("#search_hasil2").empty();
-				var html_null = '<div id="search_hasil2"></div>';
-				$("#search_hasil2").append(html_null);
-			}
-		})
+		// 				$("#search_hasil2").append(html);
+		// 			}
+		// 		})
+		// 	} else {
+		// 		$("#search_hasil2").empty();
+		// 		var html_null = '<div id="search_hasil2"></div>';
+		// 		$("#search_hasil2").append(html_null);
+		// 	}
+		// })
 
 	});	
 	</script>
-
-	<div class="modal" id="mypopup" style="margin-top:9%;">
-		<div class="modal-dialog modal-lg">
-			
-			<div style="float:right; position:absolute; z-index:100; right:0px; margin-top:-15px; margin-right:-15px; cursor:pointer;">
-				<button type="button" class="btn" data-dismiss="modal" style="background-color:#fff; color:#ff0000; z-index:100; padding:4px 7px 4px 7px; cursor:pointer;"><font class="fa fa-close" style="font-weight:normal; font-size:25px;"></font></button>
-			</div>
-			
-			<div class="modal-content" style="padding:10px;">
-
-			<!-- Modal Header -->
-			<div style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding-top:15px; padding-bottom:15px;">
-				<center><div class="modal-title" style="color: #fff; font-weight:bold; font-size:24px;">Pemberitahuan</div></center>
-			</div>
-
-			<!-- Modal body -->
-			<div class="modal-body">
-				<div id="title-popup">
-					<center>
-					Kewaspadaan Terhadap Upaya Penipuan Atas Nama PPID Indonesia Financial Group (IFG) & Subsdiaries 
-					</center>
-				</div>
-				<div id="info-popup">
-					Dalam penerapan kebijakan dan penyebaran informasi keterbukaan milik Indonesia Financial Group dapat di akses di https://ifg.id/id/public-information/about. Selain dari sumber website diatas, pihak IFG tidak bertanggung jawab dalam segala bentuk infomasi yang disampaikan.
-				</div>
-			</div>
-			<div style="margin-top:-13%;">
-				<img src="<?= url('image/serong_popup.png') ?>" style="width:200px;">
-			</div>
-
-			</div>
-		</div>
-	</div>
 
     <script src="<?= asset('assets/js/jquery.magnific-popup.min.js') ?>"></script>
     <script src="<?= asset('assets/js/jquery.pogo-slider.min.js') ?>"></script>
@@ -370,13 +374,17 @@
     <script src="<?= asset('assets/js/contact-form-script.js') ?>"></script>
     <script src="<?= asset('assets/js/isotope.min.js') ?>"></script>
     <script src="<?= asset('assets/js/images-loded.min.js') ?>"></script>
-    <script src="<?= asset('assets/js/custom.js') ?>"></script>
-	
+	<!-- Swiper Scrollbar plugin -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" /> -->
     
     <script>
+	function scroll_company_div() {
+		var elem = document.getElementById("company_div");
+		elem.scrollIntoView({ behavior: 'smooth' });
+	}	
+
 	$('#myCarousel').carousel({
 		interval: 10000
 	})
@@ -416,12 +424,13 @@
 
 	$("#search_close").click(function(){
 		$("#search_input").hide(500);
-		$("#logo-web").show();
+		$("#logo-web").show(500);
 		$("#search_action").show();
 		$("#search_close").hide();
 		$("#search_click").show();
 		$("#width-search").css("width", "auto");
 		$("#width-search").css("margin-top", "");
+		document.getElementById('search_hasil2').innerHTML = '<div id="search_hasil2" style="position: absolute; width:47%;"></div>';
 	});	
 
 	$("#search_click2").click(function(){
@@ -437,6 +446,7 @@
 		$(".search_div3").show(500);
 		$("#search_action2").show(500);
 		$("#search_click2").show();
+		document.getElementById('search_hasil1').innerHTML = '<div id="search_hasil1" style="position: absolute; width:47%;"></div>';
 	});	
 	
 	// (function ($) {

@@ -42,7 +42,7 @@
 		display:none;
 	}
 	</style>
-	<header class="top-header">
+	<header class="top-header fixed-menu">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?= url('/') ?>"><img src="<?= url('image/logo.PNG'); ?>" alt="image" id="logo-web"></a>
@@ -53,8 +53,8 @@
 								<table style="width:100%;">
 									<tr>
 										<td style="padding-left:10px;" align="left">
-											<font id="search_input"><input type="text" id="search_action2" class="form-control" placeholder="Pencarian" style="width:100%;"></font>
-											<div id="search_hasil2" style="position: absolute; width:47%;"></div>
+											<font id="search_input"><input type="text" id="search_action2" class="form-control" placeholder="Pencarian" style="width:100%;" onkeyup="search_input2(this.value)"></font>
+											<div id="search_hasil2" style="position: absolute; width:80%;"></div>
 										</td>
 										<td width="20">
 											<div class="fa fa-close" style="font-size:20px; cursor:pointer;" id="search_close"></div>
@@ -80,7 +80,7 @@
 							<table style="width:100%;">
 								<tr>
 									<td>
-										<input type="text" class="form-control" placeholder="Pencarian" style="width:100%;" id="search_action1">
+										<input type="text" class="form-control" placeholder="Pencarian" style="width:100%;" id="search_action1" onkeyup="search_input(this.value)">
 										<div id="search_hasil1" style="position: absolute; width:47%;"></div>
 									</td>
 									<td width="20" style="padding-top:35px; padding-left:15px;">

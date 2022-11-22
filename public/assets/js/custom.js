@@ -1,107 +1,35 @@
-(function($) {
-    "use strict";
-	
-	/* ..............................................
-	Loader 
-    ................................................. */
-	
-	$(window).on('load', function() { 
-		$('.preloader').fadeOut(); 
-		$('#preloader').delay(550).fadeOut('slow'); 
-		$('body').delay(450).css({'overflow':'visible'});
-	});
-    	
-	/* ..............................................
-    Navbar Bar
-    ................................................. */
-	
-	$('.navbar-nav .nav-link').on('click', function() {
-		var toggle = $('.navbar-toggler').is(':visible');
-		if (toggle) {
-			$('.navbar-collapse').collapse('hide');
-		}
-	});
-	
-	/* ..............................................
-    Fixed Menu
-    ................................................. */
-    
-	$(window).on('scroll', function () {
-		if ($(window).scrollTop() > 50) {
-			$('.top-header').addClass('fixed-menu');
-		} else {
-			$('.top-header').removeClass('fixed-menu');
-		}
-	});
+$(function(){
+    // hide comments
+    $('.hideComments').on('click', function(){
+        var $btn = $(this),
+            $parent = $btn.closest('.panel-body'),
+            $comments = $parent.find('.comment');
+        if (!$btn.hasClass('showComments')){
+            $comments.fadeOut(250);
+            $btn.addClass('showComments').text('Show Comments');
+        } else if ($btn.hasClass('showComments')){
+            $comments.fadeIn(250);
+            $btn.removeClass('showComments').text('Hide Comments');
+        }
+    });
 
-	/* ..............................................
-    Properties Filter
-    ................................................. */
-	var Container = $('.container');
-	Container.imagesLoaded(function () {
-		var portfolio = $('.properties-menu');
-		portfolio.on('click', 'button', function () {
-			$(this).addClass('active').siblings().removeClass('active');
-			var filterValue = $(this).attr('data-filter');
-			$grid.isotope({
-				filter: filterValue
-			});
-		});
-		var $grid = $('.properties-list').isotope({
-			itemSelector: '.properties-grid'
-		});
+    // css panels
+    $('.css-row').on('click','button[data-toggle="collapse"]', function(){
+        var $btn = $(this),
+            $attr = $btn.attr('data-target'),
+            $target = $($attr);
+        if ($target.hasClass('in')){
+            $target.collapse('toggle');
+            $btn.text($btn.text().replace('Hide','Show'));
+        } else {
+            $('.css-row').find('.collapse.in').removeClass('in');
+            $btn.text($btn.text().replace('Show','Hide'));
+            $btn.siblings('.btn').each(function(){
+                var $newBtn = $(this);
+                $newBtn.text($newBtn.text().replace('Hide','Show'));
+            });
+        }
+    });
 
-	});
 
-	/* ..............................................
-    Gallery
-    ................................................. */
-	
-	$(document).ready(function() {
-		$('.popup-gallery').magnificPopup({
-			delegate: 'a',
-			type: 'image',
-			tLoading: 'Loading image #%curr%...',
-			mainClass: 'mfp-img-mobile',
-			gallery: {
-				enabled: true,
-				navigateByImgClick: true,
-				preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-			},
-			image: {
-				tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-				titleSrc: function(item) {
-					return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
-				}
-			}
-		});
-	});
-	
-	/* ..............................................
-    Scroll To Top
-    ................................................. */
-	
-	$(document).ready(function () {
-
-		$(window).scroll(function () {
-			if ($(this).scrollTop() > 100) {
-				$('#scroll-to-top').fadeIn();
-			} else {
-				$('#scroll-to-top').fadeOut();
-			}
-		});
-
-		$('#scroll-to-top').click(function () {
-			$("html, body").animate({
-				scrollTop: 0
-			}, 600);
-			return false;
-		});
-
-	});
-	
-	
-
-	
-}(jQuery));
-
+});

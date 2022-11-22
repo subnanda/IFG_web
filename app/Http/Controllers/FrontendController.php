@@ -41,6 +41,9 @@ class FrontendController extends Controller
         $data['child_company_title'] = DB::table('ifg_pages_content')
                         ->select('content_title')
                         ->where('id', '=', 23)->get();
+        $data['pop_up'] = DB::table('ifg_pages_content')
+                        ->select('content_title', 'content_body', 'picture')
+                        ->where('id', '=', 44)->get();
         return view("page.index", $data);
     }
     
@@ -51,13 +54,110 @@ class FrontendController extends Controller
 
     public function searching()
     {
-        $pencarian = DB::table('ifg_pages_content')
-            ->join('ifg_menu', 'ifg_menu.id', '=', 'ifg_pages_content.id_menu')
-            ->select('ifg_pages_content.content_title', 'ifg_pages_content.content_body', 'ifg_menu.menu_link', 'ifg_menu.menu_link_slug')
-            ->where('ifg_pages_content.content_title', 'like', '%' . request('pencarian') . '%')
-            ->where('ifg_pages_content.content_body', 'like', '%' . request('pencarian') . '%')
-            ->get();
-        return response()->json($pencarian);
+        ?>
+        <div id="search_hasil1">
+            <div class="overflow">
+                <?php
+                if(request('pencarian')){
+                $pencarian = DB::table('ifg_pages_content')
+                    ->join('ifg_menu', 'ifg_menu.id', '=', 'ifg_pages_content.id_menu')
+                    ->select('ifg_pages_content.content_title', 'ifg_pages_content.content_body', 'ifg_menu.menu_link', 'ifg_menu.menu_link_slug')
+                    ->where('ifg_pages_content.content_title', 'like%', '%'. request('pencarian') . '%')
+                    ->orWhere('ifg_pages_content.content_body', 'like', '%'. request('pencarian') . '%')
+                    ->get();
+                //return response()->json($pencarian);
+                if($pencarian){
+                foreach ($pencarian as $row) {
+                ?>
+                <div class="search-border">
+                    <a href="<?php echo url($row->menu_link.'/'.$row->menu_link_slug); ?>">
+                        <table style="width: 100%;;">
+                            <tr>
+                                <td>
+                                    <?php
+                                    if($row->content_title <> '-'){
+                                    ?>
+                                    <div style="font-weight:bold; font-size:13px;"><?php echo $row->content_title; ?></div>
+                                    <?php } ?>
+                                </td>
+                                <td valign="middle" rowspan="2" width="60" style="padding-left: 5px; padding-right: 5px; font-size:9px;">Suggested</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php
+                                    if(strip_tags($row->content_body) <> '-'){
+                                    ?>
+                                    <div style="font-size:10px; line-height:1.2;"><?php echo substr(strip_tags($row->content_body), 0, 150).'...'; ?></div>
+                                    <?php } ?>        
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div>
+                    </a>
+                </div>
+                <?php } ?>
+                <?php } else { ?>
+                <div style="color:#ff0000; font-size:13px;">
+                    <center>Pencarian kata <b>'<?php echo request('pencarian'); ?>'</b> tidak ditemukan</center>
+                </div>    
+                <?php }} ?>
+            </div> 
+        </div>
+        <?php
+    }
+
+    public function searching2()
+    {
+        ?>
+        <div id="search_hasil2">
+            <div class="overflow">
+                <?php
+                if(request('pencarian')){
+                $pencarian = DB::table('ifg_pages_content')
+                    ->join('ifg_menu', 'ifg_menu.id', '=', 'ifg_pages_content.id_menu')
+                    ->select('ifg_pages_content.content_title', 'ifg_pages_content.content_body', 'ifg_menu.menu_link', 'ifg_menu.menu_link_slug')
+                    ->where('ifg_pages_content.content_title', 'like', '%'. request('pencarian') . '%')
+                    ->orWhere('ifg_pages_content.content_body', 'like', '%'. request('pencarian') . '%')
+                    ->get();
+                //return response()->json($pencarian);
+                if($pencarian){
+                foreach ($pencarian as $row) {
+                ?>
+                <div class="search-border">
+                    <a href="<?php echo url($row->menu_link.'/'.$row->menu_link_slug); ?>">
+                        <table style="width: 100%;;">
+                            <tr>
+                                <td>
+                                    <?php
+                                    if($row->content_title <> '-'){
+                                    ?>
+                                    <div style="font-weight:bold; font-size:13px;"><?php echo $row->content_title; ?></div>
+                                    <?php } ?>
+                                </td>
+                                <td valign="middle" rowspan="2" width="60" style="padding-left: 5px; padding-right: 5px; font-size:9px;">Suggested</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php
+                                    if(strip_tags($row->content_body) <> '-'){
+                                    ?>
+                                    <div style="font-size:10px; line-height:1.2;"><?php echo substr(strip_tags($row->content_body), 0, 150).'...'; ?></div>
+                                    <?php } ?>        
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div>
+                    </a>
+                </div>
+                <?php } ?>
+                <?php } else { ?>
+                <div style="color:#ff0000; font-size:13px;">
+                    <center>Pencarian kata <b>'<?php echo request('pencarian'); ?>'</b> tidak ditemukan</center>
+                </div>    
+                <?php }} ?>
+            </div>
+        </div>
+        <?php
     }
     
     public function menu($name)

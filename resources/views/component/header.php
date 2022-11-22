@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Site Metas -->
-    <title>IFG</title>
+    <title>KIP-Indonesia Financial Group</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -40,8 +40,8 @@
     <link rel="stylesheet" href="<?= asset('assets/css/responsive.css'); ?>" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= asset('assets/css/custom.css'); ?>" />
-    <link rel="stylesheet" href="<?= asset('assets/css/carousel.css'); ?>" />
-
+    <link rel="stylesheet" href="<?= asset('assets/css/slider_multi.css'); ?>" />
+     
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>

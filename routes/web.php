@@ -23,4 +23,5 @@ Route::get('faq-ifg/{name}', [FrontendController::class, 'faq_ifg']);
 Route::get('menu/{name}', [FrontendController::class, 'menu']);
 Route::get('beranda/{name}', [FrontendController::class, 'index']);
 Route::post('searching', [FrontendController::class, 'searching']);
+Route::post('searching2', [FrontendController::class, 'searching2']);
 Route::post('slider_card', [FrontendController::class, 'slider_card']);
