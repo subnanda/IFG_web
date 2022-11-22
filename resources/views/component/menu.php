@@ -42,7 +42,7 @@
 		display:none;
 	}
 	</style>
-	<header class="top-header fixed-menu">
+	<header class="top-header fixed-menu" style="z-index:100;">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?= url('/') ?>"><img src="<?= url('image/logo.PNG'); ?>" alt="image" id="logo-web"></a>

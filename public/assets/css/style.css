@@ -3270,7 +3270,7 @@ right: 15px;
 
 @media (max-width: 764px) { 
 	.layout_padding{
-		margin-top:10px;
+		margin-top:0px;
 		padding-bottom: 75px;
 	}
 }
