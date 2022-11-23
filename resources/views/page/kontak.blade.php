@@ -73,7 +73,7 @@
                             //echo $numsub1.' '.$rowcontent->parent_id_kip;	
                           ?>
                           <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#33354c; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     <?php if($numsub1){ ?>
@@ -160,7 +160,7 @@
                           ?>
                           
                           <div class="panel panel-default" <?php if($rowcontent2->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#33354c; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     

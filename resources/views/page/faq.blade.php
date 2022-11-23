@@ -70,7 +70,7 @@
                             //echo $numsub1.' '.$rowcontent->parent_id_kip;	
                           ?>
                           <div class="panel panel-default" <?php if($rowcontent->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#33354c; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     <?php if($numsub1){ ?>
@@ -95,7 +95,7 @@
                                                     if($rowcontent->menu_link_slug == $row->menu_link_slug){
                                                     ?>
                                                     <div style="margin-top:-7px;">
-                                                    <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                    <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                     </div>
                                                     <?php } ?>    
                                                 </td>
@@ -137,7 +137,7 @@
                                                 <div style="color:#ffffff;"><?php echo $rowcontent->menu_name; ?></div>
                                             </td>
                                             <td width="30" valign="top">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;"> 
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;"> 
                                             </td>
                                         </tr>
                                     </table>
@@ -157,7 +157,7 @@
                           ?>
                           
                           <div class="panel panel-default" <?php if($rowcontent2->menu_link_slug <> $row->menu_link_slug){ ?>style="background-color:#D9D9D9;"<?php } ?>>
-							<div class="panel-heading" <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#000000; font-weight:600;"<?php } ?>>
+							<div class="panel-heading" <?php if($rowcontent2->menu_link_slug == $row->menu_link_slug){ ?>style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px 8px 15px 8px; color:#ffffff; font-weight:600;"<?php } else { ?>style="padding:15px 8px 15px 8px; color:#33354c; font-weight:600;"<?php } ?>>
 							  <div class="panel-title">
 								<a <?php if($numsub1){ ?>data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row->id; ?>"<?php } else { ?> href="<?= url($row->menu_link.'/'.$row->menu_link_slug); ?>"<?php } ?> style="font-size:16px;">
                                     
@@ -172,7 +172,7 @@
                                             </td>
                                             <td width="30" valign="top">
                                                 <div style="margin-top:-7px;">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                 </div>    
                                             </td>
                                             <?php } ?>
