@@ -100,8 +100,7 @@ class AppHelper
     {
         return DB::table('ifg_pages_content_list_item')
             ->select('item_body', 'item_link', 'item_file')
-            ->where('item_type', '=', 'HBK')
-            ->where('item_body', '=', $a)
+            ->where('item_type', '=', $a)
             ->get();
     }
 
@@ -109,8 +108,12 @@ class AppHelper
     {
         return DB::table('ifg_pages_content_list_item')
             ->select('id', 'item_body', 'item_link', 'item_file')
-            ->where('item_type', '=', 'IKM')
-            ->where('item_body', '=', $a)
+            ->where('item_type', '=', $a)
             ->get();
     }
+
+    public static function web_backend()
+    { 
+        return 'http://10.1.19.105';
+    } 
 }

@@ -16,6 +16,7 @@
 @endsection	
 @section('content')
     <?php
+    $url_cms = \App\Helpers\AppHelper::web_backend();
     foreach($content as $rowcontent){
         $parent1 = '';
         $parentid1 = '';
@@ -97,7 +98,7 @@
                                                     if($rowcontent->menu_link_slug == $row->menu_link_slug){
                                                     ?>
                                                     <div style="margin-top:-7px;">
-                                                    <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                    <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                     </div>
                                                     <?php } ?>    
                                                 </td>
@@ -139,7 +140,7 @@
                                                 <div style="color:#ffffff;"><?php echo $rowcontent->menu_name; ?></div>
                                             </td>
                                             <td width="30" valign="top">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;"> 
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;"> 
                                             </td>
                                         </tr>
                                     </table>
@@ -174,7 +175,7 @@
                                             </td>
                                             <td width="30" valign="top">
                                                 <div style="margin-top:-7px;">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                 </div>    
                                             </td>
                                             <?php } ?>
@@ -228,7 +229,7 @@
                             foreach ($query2 as $row2) {	
                             ?>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom:25px;">
-                                <a href="<?php echo url('storage/files/'.$row2->item_link); ?>" target="_blank"> 
+                                <a href="<?php echo $url_cms.'/storage/files/'.$row2->item_link; ?>" target="_blank"> 
                                     <div style="background-image: linear-gradient(#ffffff, #cccccc); padding:10%; font-size:18px; font-weight:bold; box-shadow: 0 0 1px 1px #ccc;">
                                         <?php echo $row2->item_title; ?>
                                     </div>
@@ -248,6 +249,7 @@
         </div>
     </div>
 	@endsection	
+
 	@section('script_additional')
 	<script>
 	$(document).ready(function(){

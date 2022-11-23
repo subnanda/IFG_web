@@ -14,6 +14,7 @@
 
     @section('content')
     <?php
+    $url_cms = \App\Helpers\AppHelper::web_backend();
     foreach($content as $rowcontent){
         $parent1 = '';
         $parentid1 = '';
@@ -95,7 +96,7 @@
                                                     if($rowcontent->menu_link_slug == $row->menu_link_slug){
                                                     ?>
                                                     <div style="margin-top:-7px;">
-                                                    <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                    <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                     </div>
                                                     <?php } ?>    
                                                 </td>
@@ -137,7 +138,7 @@
                                                 <div style="color:#ffffff;"><?php echo $rowcontent->menu_name; ?></div>
                                             </td>
                                             <td width="30" valign="top">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;"> 
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;"> 
                                             </td>
                                         </tr>
                                     </table>
@@ -172,7 +173,7 @@
                                             </td>
                                             <td width="30" valign="top">
                                                 <div style="margin-top:-7px;">
-                                                <img src="http://localhost:8080/ifg/image/image/serong.png" style="width:30px;">
+                                                <img src="{{ url('image/serong.png') }}" style="width:30px;">
                                                 </div>    
                                             </td>
                                             <?php } ?>

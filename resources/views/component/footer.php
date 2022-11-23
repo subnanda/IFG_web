@@ -34,7 +34,7 @@
 				    </div>
 					<table>
 					   <?php
-						$query = \App\Helpers\AppHelper::footer_hubungi('Telepon');
+						$query = \App\Helpers\AppHelper::footer_hubungi('HBK');
 						foreach ($query as $row) {
 					   ?>
 					   <tr>
@@ -47,29 +47,14 @@
 						  	 	<div style="color:#fff; font-size:11px; margin-bottom:3px; cursor:pointer;"><?php echo $row->item_link; ?></div>
 						   </td>
 					   </tr>
-						<?php } ?>
 					   <tr>
 					   		<td colspan="2" height="10"></td>
-					   </tr>
-					   <?php
-						$query = \App\Helpers\AppHelper::footer_hubungi('Email');
-						foreach ($query as $row) {
-						?>	
-					   <tr>
-						   <td valign="top">
-						   	   <div style="padding:5px 8px 1px 8px; cursor:pointer;">
-									<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
-							   </div>		
-						   </td>
-						   <td style="padding-left:5px;">	
-							   <div style="color:#fff; font-size:11px; margin-bottom:3px; cursor:pointer;"><?php echo $row->item_link; ?></div>
-							</td>
-					   </tr>
+					   </tr>	
 					   <?php } ?>
 					</table>
 				</div>
 				
-                <div class="col-md-3 text-left" style=" z-index:5;">
+                <div class="col-md-3 text-left">
 				    <div style="font-weight:bold; color:#000000; font-size:17px; margin-bottom:-15px;">
 				    	<div style="font-weight:bold; color:#FFF; font-size:14px; margin-bottom:7px;">Ikuti Kami</div>
 				    </div>
@@ -80,53 +65,18 @@
 						<table>
 						  <tr>
 						    <?php
-							$query = \App\Helpers\AppHelper::footer_medsos('Instagram');
+							$query = \App\Helpers\AppHelper::footer_medsos('IKM');
 							foreach ($query as $row) {
 							?>
 							<td>
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
+								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer;" target="_blank">
 									<div>
 										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
 									</div>
 								</a>
 							</td>
-							<?php } ?>
-						    <?php
-							$query = \App\Helpers\AppHelper::footer_medsos('Facebook');
-							foreach ($query as $row) {
-							?>
-							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
-									<div>
-										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
-									</div>
-								</a>
-							</td>
-							<?php } ?>
-						    <?php
-							$query = \App\Helpers\AppHelper::footer_medsos('Twitter');
-							foreach ($query as $row) {
-							?>
-							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
-									<div>
-										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
-									</div>
-								</a>
-							</td>
-							<?php } ?>
-						    <?php
-							$query = \App\Helpers\AppHelper::footer_medsos('Linkedln');
-							foreach ($query as $row) {
-							?>
-							<td style="padding-left:10px;">
-								<a href="<?php echo $row->item_link; ?>" style="margin:5px 5px 5px 5px; cursor:pointer; z-index:50;" target="_blank">
-									<div>
-										<img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width: 27px;">
-									</div>
-								</a>
-							</td>
-							<?php } ?>
+							<td width="10"></td>
+							<?php } ?>	
 						  </tr>
 						</table>
 					</div>
