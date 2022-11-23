@@ -213,7 +213,7 @@ foreach($content as $rowcontent){
                 <?php
                 foreach($content as $row){
                 ?>
-                <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:10px; padding-right:10px;">
+                <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:20px; padding-right:10px;">
                     <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $parent1; ?>
                     </h2>
@@ -230,7 +230,7 @@ foreach($content as $rowcontent){
                         foreach ($query2 as $row2) {	
                         ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom:25px;">
-                            <a href="<?php echo $url_cms.'/storage/files/'.$row2->item_link; ?>" target="_blank"> 
+                            <a href="<?php echo $url_cms.'/storage/files/'.$row2->item_file; ?>" target="_blank"> 
                                 <div style="background-image: linear-gradient(#ffffff, #F9F9F9); padding:10%; font-size:14px; color:#33354c; font-weight:600; box-shadow: 0 0 1px 1px #ccc;">
                                     <?php echo $row2->item_title; ?>
                                 </div>

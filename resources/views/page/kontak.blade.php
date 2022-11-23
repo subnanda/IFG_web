@@ -212,7 +212,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:10px; padding-right:10px;">
+                    <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:20px; padding-right:10px;">
                     <h2 style="color:#000000; font-size:23px; font-weight:bold;">
 							<?php echo $parent1; ?>
 						</h2>

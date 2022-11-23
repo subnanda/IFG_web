@@ -211,7 +211,7 @@ foreach($content as $rowcontent){
             </div>
             
             <div class="col-md-9" id="body-content-inner">
-                <div class="full" style="padding-top:20px; padding-left:10px; padding-right:10px; margin-bottom:20px;">
+                <div class="full" style="padding-top:20px; padding-left:20px; padding-right:10px; margin-bottom:20px;">
                     <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $parent1; ?>
                     </h2>

@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="full" style="padding-top:20px; padding-left:10px; padding-right:10px; margin-bottom:20px;">
+                    <div class="full" style="padding-top:20px; padding-left:20px; padding-right:10px; margin-bottom:20px;">
                         <?php
                         foreach($content as $row){
                         ?>
