@@ -40,7 +40,7 @@
         <div class="container-image">
             <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
             <div class="centered">
-               <div style="font-weight:bold;" id="title-menu"><?php echo $rowcontent->menu_name; ?></div>
+                <div style="font-weight:bold;" id="title-menu"><?php if($parent2){ echo $parent2; } else if($parent1){ echo ''.$parent1; } else { echo $rowcontent->menu_name; } //$rowcontent->menu_name; ?></div>
                 <div style="line-height:1.2;" id="detail-menu">
                 <?php if($parent2){ echo '<a href="'.url($parent_link2).'" style="color:#fff;">'.$parent2.'</a>'; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } if($parent1){ echo '<a href="'.url($parent_link1).'" style="color:#fff;">'.$parent1; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } echo '<a href="'.url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug).'" style="color:#fff;">'.$rowcontent->menu_name; ?>
                 </div>
@@ -52,9 +52,9 @@
 	<div>
         <div style="width:95%; margin-top:-75px;">
             <div class="row">
-                <div class="col-md-3" id="side_div">
+                <div class="col-md-3 left-side" id="side_div">
                     <div class="full">
-                        <div class="panel-group" id="accordion">
+                        <div class="panel-group" id="accordion" style="z-index: 10; position: absolute;">
                           <?php
                           foreach($content as $rowcontent){
                             $parent_1 = $rowcontent->parent_id_kip;
@@ -281,34 +281,7 @@
 						<div style="color:#33354c; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
                             <?php echo $row->content_body; ?>
 						</div>
-						<!-- <div class="panel-group" id="accordion" style="margin-top:10px;">
-                          <?php
-                          $no = 1;
-                          $query2 = \App\Helpers\AppHelper::select_ifg_pages_content_list_item($row->id);
-                          foreach ($query2 as $row2) {	
-                          ?>
-                            <a style="color:#000; font-size:15px;" href="<?= url('storage/files/'.$row2->item_link); ?>" target="_blank">
-                                <div class="panel panel-default" style="background-color:#fff; box-shadow: 0 0 1px 1px #ccc; margin-bottom:20px;">
-                                <div class="panel-title">
-                                    <table style="width:100%;">
-                                        <tr>
-                                            <td style="padding:8px; font-weight:600;">
-                                                <div><?php echo $no; ?>. <font style="margin-left:10px;"><?php echo $row2->item_title; ?></font></div>
-                                            </td>
-                                            <td width="50" align="right" valign="top">
-                                                <div style="margin-top:-4px; margin-right:-2px;">
-                                                <img src="{{ url('image/triagle.png') }}" style="height:25px;">
-                                                </div>    
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- <font class="fa fa-file-pdf-o" style="float:right; color:#333333; margin-top:8px;"></font> -->
-                                </div>
-                                </div>
-                            </a>
-                          <?php $no++; } ?>
-						</div>
-                        <?php } ?> -->
+						<?php } ?>
                     </div>
                 </div>
             </div>

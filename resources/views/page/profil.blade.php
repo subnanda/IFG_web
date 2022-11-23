@@ -40,7 +40,7 @@ foreach($content as $rowcontent){
     <div class="container-image">
         <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
         <div class="centered">
-           <div style="font-weight:bold;" id="title-menu"><?php echo $rowcontent->menu_name; ?></div>
+            <div style="font-weight:bold;" id="title-menu"><?php if($parent2){ echo $parent2; } else if($parent1){ echo ''.$parent1; } else { echo $rowcontent->menu_name; } //$rowcontent->menu_name; ?></div>
             <div style="line-height:1.2;" id="detail-menu">
             <?php if($parent2){ echo ''.$parent2.''; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } if($parent1){ echo ''.$parent1; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } echo '<a href="'.url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug).'" style="color:#fff;">'.$rowcontent->menu_name.'</a>'; ?>
             </div>
@@ -52,7 +52,7 @@ foreach($content as $rowcontent){
 <div>
     <div style="width:95%; margin-top:-75px;">
         <div class="row">
-            <div class="col-md-3" id="side_div">
+            <div class="col-md-3 left-side" id="side_div">
                 <div class="full">
                     <div class="panel-group" id="accordion">
                       <?php
@@ -220,9 +220,13 @@ foreach($content as $rowcontent){
                     <div style="color:#33354c; font-size:15px; margin-top:10px; margin-bottom:30px; line-height:1.4; text-align:justify;">
                         <?php echo $row->content_body; ?>   
                     </div>
+                    <?php
+                    if($row->content_title <> '-'){
+                    ?>
                     <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $row->content_title; ?>
                     </h2>
+                    <?php } ?>
                     <div class="row">
                         <?php
                         $no = 1;

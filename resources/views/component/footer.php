@@ -6,7 +6,7 @@
         <div style="width:90%; padding-left:5%;">
             <div class="row">
 				<div class="col-md-12">
-				   <a href=""><img src="<?= url('image/logo-white.pn'); ?>g" alt="image" style="height:57px; width:113px;"></a>
+				   <a href=""><img src="<?= url('image/logo-white.png'); ?>" alt="image" style="height:57px; width:113px;"></a>
 				</div>
                 <div class="col-md-5 margin-bottom_30">
 				   <div style="margin-top:20px;">

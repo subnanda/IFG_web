@@ -77,28 +77,6 @@
             }
             <?php $i++; } ?>
         }
-
-        @media (min-width: 800px) {
-            .footer-div { 
-                background-color:#191919; 
-                font-size:11px; 
-                background-image: url('<?= url('image/ifg_white.png'); ?>'); 
-                background-repeat: no-repeat; 
-                background-size: 600px; 
-                background-position: right bottom;
-            }
-        }
-
-        @media (max-width: 599px) {
-            .footer-div { 
-                background-color:#191919; 
-                font-size:11px; 
-                background-image: url('<?= url('image/ifg_white.png'); ?>'); 
-                background-repeat: no-repeat; 
-                background-size: 400px; 
-                background-position: right bottom;
-            }
-        }
     </style>
     @endsection	
     @section('content')

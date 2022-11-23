@@ -42,7 +42,7 @@
         <div class="container-image">
             <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
             <div class="centered">
-               <div style="font-weight:bold;" id="title-menu"><?php echo $rowcontent->menu_name; ?></div>
+                <div style="font-weight:bold;" id="title-menu"><?php if($parent2){ echo $parent2; } else if($parent1){ echo ''.$parent1; } else { echo $rowcontent->menu_name; } //$rowcontent->menu_name; ?></div>
                 <div style="line-height:1.2;" id="detail-menu">
                 <?php if($parent2){ echo ''.$parent2.''; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } if($parent1){ echo ''.$parent1; ?> <font class="fa fa-angle-right" style="color:#fff; font-weight:bold; margin-left:7px; margin-right:7px;"></font> <?php } echo '<a href="'.url($rowcontent->menu_link.'/'.$rowcontent->menu_link_slug).'" style="color:#fff;">'.$rowcontent->menu_name.'</a>'; ?>
                 </div>
@@ -54,8 +54,11 @@
 	<div>
         <div class="" style="width:95%; margin-top:-74.5px;">
             <div class="row">
-                <div class="col-md-3" id="side_div">
+                <div class="col-md-3 left-side" id="side_div">
                     <div class="full">
+                        <div style="position: absolute; top:0px; z-index:0;">
+                            <img src="<?= url('image/serong-atas.png'); ?>" style="width:100%;">
+                        </div>
                         <div class="panel-group" id="accordion">
                           <?php
                           foreach($content as $rowcontent){

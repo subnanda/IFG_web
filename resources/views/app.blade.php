@@ -21,6 +21,57 @@
     @yield('footer')
     @yield('script')
     @yield('script_additional')
+    <style>
+        @media (min-width: 800px) {
+            .footer-div { 
+                background-color:#191919; 
+                font-size:11px; 
+                background-image: url('<?= url('image/ifg_white.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 600px; 
+                background-position: right bottom;
+            }
+
+            .left-side { 
+                background-image: url('<?= url('image/serong-bawah.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 370px; 
+                background-position: right bottom;
+            }
+
+            .right-side { 
+                background-image: url('<?= url('image/serong-atas.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 370px; 
+                background-position: right top;
+            }
+        }
+
+        @media (max-width: 599px) {
+            .footer-div { 
+                background-color:#191919; 
+                font-size:11px; 
+                background-image: url('<?= url('image/ifg_white.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 400px; 
+                background-position: right bottom;
+            }
+
+            .left-side { 
+                background-image: url('<?= url('image/serong-bawah.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 270px; 
+                background-position: right bottom;
+            }
+
+            .right-side { 
+                background-image: url('<?= url('image/serong-atas.png'); ?>'); 
+                background-repeat: no-repeat; 
+                background-size: 270px; 
+                background-position: right top;
+            }
+        }
+    </style>
 </body>
 <div id="chat">
     <table>
