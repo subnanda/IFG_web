@@ -278,7 +278,7 @@
 						<h2 style="color:#ff0000; font-size:23px; font-weight:bold;">
 							<?php echo $row->content_title; ?>
 						</h2>
-						<div style="color:#000000; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
+						<div style="color:#33354c; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
                             <?php echo $row->content_body; ?>
 						</div>
 						<!-- <div class="panel-group" id="accordion" style="margin-top:10px;">

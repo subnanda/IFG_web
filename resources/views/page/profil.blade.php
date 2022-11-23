@@ -214,13 +214,13 @@ foreach($content as $rowcontent){
                 foreach($content as $row){
                 ?>
                 <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:10px; padding-right:10px;">
-                    <h2 style="color:#000000; font-size:23px; font-weight:bold;">
+                    <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $parent1; ?>
                     </h2>
-                    <div style="color:#000000; font-size:15px; margin-top:10px; margin-bottom:30px; line-height:1.4; text-align:justify;">
+                    <div style="color:#33354c; font-size:15px; margin-top:10px; margin-bottom:30px; line-height:1.4; text-align:justify;">
                         <?php echo $row->content_body; ?>   
                     </div>
-                    <h2 style="color:#000000; font-size:23px; font-weight:bold;">
+                    <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $row->content_title; ?>
                     </h2>
                     <div class="row">
@@ -231,7 +231,7 @@ foreach($content as $rowcontent){
                         ?>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-center" style="margin-bottom:25px;">
                             <a href="<?php echo $url_cms.'/storage/files/'.$row2->item_link; ?>" target="_blank"> 
-                                <div style="background-image: linear-gradient(#ffffff, #F9F9F9); padding:10%; font-size:14px; font-weight:600; box-shadow: 0 0 1px 1px #ccc;">
+                                <div style="background-image: linear-gradient(#ffffff, #F9F9F9); padding:10%; font-size:14px; color:#33354c; font-weight:600; box-shadow: 0 0 1px 1px #ccc;">
                                     <?php echo $row2->item_title; ?>
                                 </div>
                                 <div style="position: absolute; top: 0px; right: 15px;">

@@ -216,7 +216,7 @@
 						<h2 style="color:#ff0000; font-size:23px; font-weight:bold;">
 							<?php echo $row->content_title; ?>
 						</h2>
-						<div style="color:#000000; font-size:18px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
+						<div style="color:#33354c; font-size:18px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
                             <?php echo $row->content_body; ?>
 						</div>
 						<div class="panel-group" id="accordion" style="margin-top:20px;">
@@ -226,7 +226,7 @@
                             $query2 = \App\Helpers\AppHelper::select_ifg_pages_content_list_item($row->id);
                             foreach ($query2 as $row2) {	
                             ?>
-                            <div class="panel panel-default" style="background-color:#fff; font-weight:bold; box-shadow: 0 0 1px 1px #ccc; margin-bottom:10px; padding:10px;">
+                            <div class="panel panel-default" style="background-color:#fff; font-weight:bold; box-shadow: 0 0 1px 1px #ccc; color:#33354c; margin-bottom:10px; padding:10px;">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $row2->id; ?>">

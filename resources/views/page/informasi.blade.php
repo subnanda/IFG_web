@@ -212,13 +212,13 @@ foreach($content as $rowcontent){
             
             <div class="col-md-9" id="body-content-inner">
                 <div class="full" style="padding-top:20px; padding-left:10px; padding-right:10px; margin-bottom:20px;">
-                    <h2 style="color:#000000; font-size:23px; font-weight:bold;">
+                    <h2 style="color:#33354c; font-size:23px; font-weight:bold;">
                         <?php echo $parent1; ?>
                     </h2>
                     <?php
                     foreach($content as $row){
                     ?>
-                    <div style="color:#000000; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
+                    <div style="color:#33354c; text-align:justify; font-size:15px; margin-top:10px; margin-bottom:20px; line-height:1.4;">
                         <?php echo $row->content_body; ?>
                     </div>
                     <h2 style="color:#ff0000; font-size:23px; font-weight:bold;">
@@ -230,7 +230,7 @@ foreach($content as $rowcontent){
                       $query2 = \App\Helpers\AppHelper::select_ifg_pages_content_list_item($row->id);
                       foreach ($query2 as $row2) {	
                       ?>
-                        <a style="color:#000; font-size:15px;" href="<?= $url_cms.'/storage/files/'.$row2->item_file; ?>" target="_blank">
+                        <a style="color:#33354c; font-size:15px;" href="<?= $url_cms.'/storage/files/'.$row2->item_file; ?>" target="_blank">
                             <div class="panel panel-default" style="background-image: linear-gradient(#ffffff, #F9F9F9); font-size:14px; box-shadow: 0 0 1px 1px #ccc; margin-bottom:20px;">
                             <div class="panel-title">
                                 <table style="width:100%;">
