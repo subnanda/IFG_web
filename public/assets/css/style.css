@@ -3265,7 +3265,7 @@ right: 15px;
 
 @media (min-width:766px) and (max-width:988px) {
 	.layout_padding{
-		margin-top:0px;
+		margin-top:80px;
 		padding-bottom: 75px;
 		max-width: 100%; 
 		overflow-x: hidden;
@@ -3274,7 +3274,7 @@ right: 15px;
 
 @media (max-width: 764px) { 
 	.layout_padding{
-		margin-top:0px;
+		margin-top:80px;
 		padding-bottom: 75px;
 		max-width: 100%; 
 		overflow-x: hidden;
