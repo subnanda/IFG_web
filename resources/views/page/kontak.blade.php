@@ -38,7 +38,7 @@
             }
         }
     ?>
-	<div class="layout_padding">
+	<div class="layout_padding2">
         <div class="container-image">
             <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
             <div class="centered">

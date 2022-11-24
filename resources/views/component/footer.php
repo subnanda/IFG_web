@@ -94,6 +94,23 @@
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= asset('assets/js/slippry.js') ?>"></script>
 	<script>
+	function menu_utama_bgt(a){
+		$(".menu-utama"+a).toggle();
+	}
+
+	function submenu(a, b){
+		$(function() {
+			$(".menu-utama"+a).show();
+			$(".dropdown-submenus"+b).toggle();
+		});	
+	}
+
+	function menu(a){
+		$(function() {
+			$(".menu-utama"+a).toggle();
+		});	
+	}
+
 	$(function() {
 		var demo1 = $("#demo1").slippry({
 			transition: 'fade',

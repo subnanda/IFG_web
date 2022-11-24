@@ -97,20 +97,20 @@
 						$numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);	
 						?>
 						<li <?php if($numsub1){ echo 'class="nav-item dropdown search_div3"'; } else { echo 'class="search_div3"'; } ?>>
-							<a style="font-size:13px; font-weight:bold;" class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
+							<a onclick="menu_utama_bgt(<?php echo $row->id; ?>)" style="font-size:13px; font-weight:bold;" class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
 								<?php echo $row->menu_name; ?>
 							</a>
 							<?php if($numsub1){ ?>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size:13px;">
+							<ul class="dropdown-menu menu-utama<?php echo $row->id; ?>" aria-labelledby="navbarDropdownMenuLink" style="font-size:13px;">
 								<?php
 								$query2 = \App\Helpers\AppHelper::menu_child($row->id);
 								foreach ($query2 as $row2) {
 								$numsub2 = \App\Helpers\AppHelper::menu_child_num($row2->id);		
 								?>
-								<li>
-									<a class="dropdown-item" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row->menu_link.'/'.$row2->menu_link_slug) ?>"<?php } ?>><?php echo $row2->menu_name; ?> <?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; margin-top:7px; font-size:13px; font-weight:600;"></font><?php } ?></a>
+								<li class="show-submenu">
+									<a class="dropdown-item" onclick="submenu(<?php echo $row->id; ?>, <?php echo $row2->id; ?>)" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row->menu_link.'/'.$row2->menu_link_slug) ?>"<?php } ?>><?php echo $row2->menu_name; ?> <?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; margin-top:7px; font-size:13px; font-weight:600; display:inline;"></font><?php } ?></a>
 									<?php if($numsub2){ ?>
-									<ul class="dropdown-menu dropdown-submenu">
+									<ul class="dropdown-menu dropdown-submenu dropdown-submenus<?php echo $row2->id; ?>" id="submenu-active">
 										<?php
 										$query3 = \App\Helpers\AppHelper::menu_child($row2->id);
 										foreach ($query3 as $row3) {	
