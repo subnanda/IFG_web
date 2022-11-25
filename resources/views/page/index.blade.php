@@ -120,7 +120,7 @@
                             </div>
                             <div class="centered" style="float:left; width:80%;">
                                 <div style="font-weight:bold; color:#fff;" id="title-menu"><?php echo $row->content_title; ?></div>
-                                <div style="line-height:1.2; color:#fff;" id="detail-menu">
+                                <div style="color:#fff; font-weight:600;" id="detail-menu">
                                     <?php echo $row->content_body; ?> <a class="btn-detail" onclick="scroll_company_div()">Selengkapnya <font style="margin-top: 10px;"><img src="{{ url('image/serong-small.png') }}" style="height:18px; margin-top: 5px;"></font></a>
                                 </div>
                             </div>    

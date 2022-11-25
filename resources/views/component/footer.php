@@ -96,6 +96,14 @@
 	<script>
 	function menu_utama_bgt(a){
 		$(".menu-utama"+a).toggle();
+		<?php
+		$query = \App\Helpers\AppHelper::menu_parent();
+		foreach ($query as $row) {
+		?>
+		if(a != <?php echo $row->id; ?>){
+			$(".menu-utama<?php echo $row->id; ?>").hide();
+		}
+		<?php } ?>
 	}
 
 	function submenu(a, b){
