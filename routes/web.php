@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,4 @@ Route::get('beranda/{name}', [FrontendController::class, 'index']);
 Route::post('searching', [FrontendController::class, 'searching']);
 Route::post('searching2', [FrontendController::class, 'searching2']);
 Route::post('slider_card', [FrontendController::class, 'slider_card']);
+Route::post('kirim-email', [EmailController::class, 'index']);
