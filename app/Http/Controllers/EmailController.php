@@ -10,11 +10,16 @@ class EmailController extends Controller
 {
     public function index(HttpRequest $request)
     {
+        $request->validate([
+            'nama' => 'required|max:25',
+            'email' => 'required|email',
+            'pesan' => 'required',
+        ]);
 
         $details = [
             'title' => 'Layanan pengaduan IFG KIP',
-            'nama' => $request->nama,
-            'email' => $request->email,
+            'nama' => strip_tags($request->nama),
+            'email' => strip_tags($request->email),
             'pesan' => $request->pesan,
         ];
 

@@ -89,10 +89,12 @@ header("strict-transport-security: max-age=2592000");
                                     <div style="padding-left:13px;">Nama</div>
                                     <div style="margin-bottom:15px;">
                                         <input type="text" class="form-control" name="nama" style="font-size:13px;" placeholder="Silakan masukan Nama Anda">
+                                        <small class="nama_error input-group text-sm mt-2 text-danger error"></small>
                                     </div>
                                     <div style="padding-left:13px;">Email</div>
                                     <div style="margin-bottom:15px;">
                                         <input type="text" class="form-control" name="email" style="font-size:13px;" placeholder="Silakan masukan Email Anda">
+                                        <small class="email_error input-group text-sm mt-2 text-danger error"></small>
                                     </div>
                                     <div style="padding-left:13px;">Pesan</div>
                                     <div style="margin-bottom:15px;">
