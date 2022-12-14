@@ -97,7 +97,7 @@
 						$numsub1 = \App\Helpers\AppHelper::menu_child_num($row->id);	
 						?>
 						<li <?php if($numsub1){ echo 'class="nav-item dropdown search_div3"'; } else { echo 'class="search_div3"'; } ?>>
-							<a onclick="menu_utama_bgt(<?php echo $row->id; ?>)" style="font-size:13px; font-weight:bold;" class="nav-link <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
+							<a onclick="menu_utama_bgt(<?php echo $row->id; ?>)" style="font-size:13px; font-weight:bold;" class="nav-link font-menu-title<?php echo $row->id; ?> <?php if($numsub1){ echo 'dropdown-toggle'; } ?>" <?php if($numsub1){ ?>href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"<?php } else {?>href="<?= url($row->menu_link.'/'.$row->menu_link_slug) ?>"<?php } ?>>
 								<?php echo $row->menu_name; ?>
 							</a>
 							<?php if($numsub1){ ?>
@@ -124,7 +124,8 @@
 								</li>
 								<?php } ?>
 							</ul>		
-							<?php } ?>			
+							<?php } ?>	
+							<div class="font-menu<?php echo $row->id; ?> font-menuan"></div>		
 						</li>
 						<?php } ?>		
 						<li style="padding-top:8px; padding-left:15px;" id="search_click2">

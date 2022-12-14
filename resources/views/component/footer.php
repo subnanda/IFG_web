@@ -94,7 +94,35 @@
 	<script src="<?= asset('assets/js/popper.min.js') ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js') ?>"></script>
 	<script src="<?= asset('assets/js/slippry.js') ?>"></script>
+	<?php
+	$query = \App\Helpers\AppHelper::menu_parent();
+	foreach ($query as $row) {
+	?>
+	<style>
+	.font-menu<?php echo $row->id; ?>{
+		border-bottom:6px solid #ff0000;
+		margin-top: 15px;
+		width:100%;
+		display:none;
+		margin-bottom: -15px;
+	}
+
+	/* .font-menu-title<?php echo $row->id; ?>:hover{
+		margin-top: -10px;
+	} */
+	</style>
+	<script>	
+	$(".font-menu-title<?php echo $row->id; ?>").hover(function() {
+		$(".font-menuan").fadeOut(5);
+		$(".font-menu<?php echo $row->id; ?>").fadeOut(5);
+		$(".font-menu<?php echo $row->id; ?>").fadeIn(5);
+	});
+	</script>
+	<?php } ?>
 	<script>
+	// $("#home").mouseover(function() {
+	// 	$(".font-menuan").hide(5);
+	// });
 	function menu_utama_bgt(a){
 		$(".menu-utama"+a).toggle();
 		<?php

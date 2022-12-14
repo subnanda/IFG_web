@@ -199,7 +199,7 @@
                                                         <img src="<?= url('image/serong.png'); ?>" class="img-fluid mx-auto d-block" style="height:25px;">
                                                     </div>
                                                     <center>
-                                                        <div style="margin-top:35px;">
+                                                        <div style="margin-top:30px;">
                                                             <!-- <div class="line-width"></div> -->
                                                             <h2 style="color:#FFFFFF; font-size:19px; font-weight:bold;"><?php echo $row->item_title; ?></h2>
                                                             <div style="padding:10px; font-size:15px; line-height:1.7;">
