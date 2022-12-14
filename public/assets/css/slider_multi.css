@@ -164,7 +164,7 @@
         left: 0;
         top: 0; }
         .sy-controls li.sy-prev a:after {
-          background-image: url('http://localhost:1500/image/left.png');
+          background-image: url('https://kip.ifg.id/image/left.png');
           background-repeat: no-repeat;
           width: 35px;
           height: 35px;
@@ -176,7 +176,7 @@
         top: 0; 
       }
         .sy-controls li.sy-next a:after {
-            background-image: url('http://localhost:1500/image/right.png');
+            background-image: url('https://kip.ifg.id/image/right.png');
             background-repeat: no-repeat;
             width: 35px;
             height: 35px;
@@ -216,7 +216,7 @@
           color: #111;
           font-weight: 800;
           position: absolute;
-          background-color: #fff;
+          /* background-color: #fff; */
           width: 35px;
           height: 35px;
           left: 50%;
@@ -244,7 +244,7 @@
     .sy-caption-wrap .sy-caption {
       position: relative;
       left: -50%;
-      background-color: rgba(0, 0, 0, 0.54);
+      /* background-color: rgba(0, 0, 0, 0.54); */
       color: #fff;
       padding: 0.4em 1em;
       border-radius: 1.2em; }
@@ -282,7 +282,7 @@
       margin: 0 1em 0 0;
       border-radius: 50%; }
       .sy-pager li.sy-active a {
-        background-color: #fff; }
+        /* background-color: #fff; } */
       .sy-pager li a {
         width: 30px;
         height: 6px;

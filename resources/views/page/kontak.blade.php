@@ -38,7 +38,7 @@
             }
         }
     ?>
-	<div class="layout_padding2">
+	<div class="layout_padding2 animate-box fadeInDown animated">
         <div class="container-image">
             <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
             <div class="centered">
@@ -54,7 +54,7 @@
 	<div>
         <div class="" style="width:95%; margin-top:-74.5px;">
             <div class="row">
-                <div class="col-md-3 left-side" id="side_div">
+                <div class="col-md-3 left-side animate-box fadeInLeft animated" id="side_div">
                     <div class="full">
                         <div style="position: absolute; top:0px; z-index:0;">
                             <img src="<?= url('image/serong-atas.png'); ?>" style="width:100%;">
@@ -214,7 +214,7 @@
 						</div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 animate-box fadeInUp animated">
                     <div class="full" style="padding-top:40px; margin-bottom:20px; padding-left:20px; padding-right:10px;">
                     <h2 style="color:#000000; font-size:23px; font-weight:bold;">
 							<?php echo $parent1; ?>

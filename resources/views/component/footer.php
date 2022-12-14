@@ -1,8 +1,9 @@
 	<!-- Start Footer -->
     <?php
-    $url_cms = 'http://10.1.19.105';
+    // $url_cms = 'http://10.1.19.105';
+	$url_cms = \App\Helpers\AppHelper::web_backend();
     ?>
-    <footer class="footer-box footer-div">
+    <footer class="footer-box footer-div animate-box fadeInUp animated">
         <div style="width:90%; padding-left:5%;">
             <div class="row">
 				<div class="col-md-12">

@@ -36,7 +36,7 @@ foreach($content as $rowcontent){
         }
     }
 ?>
-<div class="layout_padding2">
+<div class="layout_padding2 animate-box fadeInDown animated">
     <div class="container-image">
         <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
         <div class="centered">
@@ -52,7 +52,7 @@ foreach($content as $rowcontent){
 <div>
     <div style="width:95%; margin-top:-75px;">
         <div class="row">
-            <div class="col-md-3 left-side" id="side_div">
+            <div class="col-md-3 left-side animate-box fadeInLeft animated" id="side_div">
                 <div class="full">
                     <div class="panel-group" id="accordion">
                       <?php
@@ -209,7 +209,7 @@ foreach($content as $rowcontent){
                     </div>
                 </div>
             </div>
-            <div class="col-md-9" id="body-content-inner">
+            <div class="col-md-9 animate-box fadeInUp animated" id="body-content-inner">
                 <?php
                 foreach($content as $row){
                 ?>

@@ -35,7 +35,7 @@
             }
         }
     ?>
-	<div class="layout_padding2">
+	<div class="layout_padding2 animate-box fadeInDown animated">
         <div class="container-image">
             <img src="{{ url('image/bg-informasi.jpg') }}" alt="Snow" style="width:100%;" id="img-height">
             <div class="centered">
@@ -51,7 +51,7 @@
 	<div>
         <div style="width:95%; margin-top:-75px;">
             <div class="row">
-                <div class="col-md-3 left-side" id="side_div">
+                <div class="col-md-3 left-side animate-box fadeInLeft animated left-side" id="side_div">
                     <div class="full">
                         <div class="panel-group" id="accordion">
                           <?php
@@ -208,7 +208,7 @@
 						</div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 animate-box fadeInUp animated">
                     <div class="full" style="padding-top:20px; padding-left:20px; padding-right:10px; margin-bottom:20px;">
                         <?php
                         foreach($content as $row){

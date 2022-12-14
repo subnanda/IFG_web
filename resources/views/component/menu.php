@@ -43,7 +43,7 @@
 	}
 	</style>
 	<header class="top-header fixed-menu" style="z-index:100;">
-        <nav class="navbar header-nav navbar-expand-lg">
+        <nav class="navbar header-nav navbar-expand-lg animate-box fadeInLeft animated">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?= url('/') ?>"><img src="<?= url('image/logo.PNG'); ?>" alt="image" id="logo-web"></a>
 				<table id="width-search">
@@ -108,7 +108,7 @@
 								$numsub2 = \App\Helpers\AppHelper::menu_child_num($row2->id);		
 								?>
 								<li class="show-submenu">
-									<a class="dropdown-item" onclick="submenu(<?php echo $row->id; ?>, <?php echo $row2->id; ?>)" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row->menu_link.'/'.$row2->menu_link_slug) ?>"<?php } ?>><?php echo $row2->menu_name; ?> <?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; margin-top:7px; font-size:13px; font-weight:600; display:inline;"></font><?php } ?></a>
+									<a class="dropdown-item" onclick="submenu(<?php echo $row->id; ?>, <?php echo $row2->id; ?>)" <?php if($numsub2){ ?>href="#"<?php } else { ?>href="<?= url($row->menu_link.'/'.$row2->menu_link_slug) ?>"<?php } ?>><table><tr><td valign="top" width="300"><?php if(strlen($row2->menu_name) > 51){ echo '<div>'.substr($row2->menu_name, 0, 51).'</div><div>'.substr($row2->menu_name, 51, strlen($row2->menu_name)).'</div>'; } else { echo $row2->menu_name; } ?></td><td valign="top" style="padding-left:5px;"><?php if($numsub2){ ?><font class="fa fa-caret-right" style="color:#ff0000; float:right; font-size:13px; font-weight:600; display:inline;"></font><?php } ?></td></tr></table></a>
 									<?php if($numsub2){ ?>
 									<ul class="dropdown-menu dropdown-submenu dropdown-submenus<?php echo $row2->id; ?>" id="submenu-active">
 										<?php

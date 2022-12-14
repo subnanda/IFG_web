@@ -6,7 +6,6 @@ header("Referrer-Policy: strict-origin-when-cross-origin");
 header("Permissions-Policy: microphone=(), camera=()");
 header("strict-transport-security: max-age=2592000");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,7 +76,7 @@ header("strict-transport-security: max-age=2592000");
     <table>
         <tr>
             <td>
-                <div id="chat-box">
+                <div id="chat-box" class="animate-box fadeInRight animated">
                     <div>
                         <div style="background-image: linear-gradient(to right, #BD1D23, #E61E26, #F3131B, #ED1C24); padding:15px; color:#fff; font-size:14px; line-height:1.2;">
                             <center>Silakan masukan pesan anda pada formulir di bawah ini.</center>
@@ -112,10 +111,10 @@ header("strict-transport-security: max-age=2592000");
         </tr>
         <tr>
             <td>
-                <div id="chat-open">
+                <div id="chat-open" class="animate-box fadeInRight animated">
                     <img src="{{ url('image/chat.png') }}" style="width:70px;">
                 </div>
-                <div id="chat-close">
+                <div id="chat-close" class="animate-box fadeInRight animated">
                     <img src="{{ url('image/close.png') }}" style="width:70px;">
                 </div>
             </td>

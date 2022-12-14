@@ -84,7 +84,7 @@
         <?php
         $url_cms = \App\Helpers\AppHelper::web_backend();
         ?>
-        <div class="section layout_padding">
+        <div class="section layout_padding animate-box fadeInDown animated">
             <div id="slideran-div">
                 <div class="row">
                     <div class="col-lg-12">
@@ -169,7 +169,7 @@
                     <div class="top-content">
                         <div class="container-fluid">
                             <div id="myCarousel" class="carousel slide w-100" data-ride="carousel">
-                                
+                                <!--    
                                 <div>    
                                     <ol class="carousel-indicators">
                                         <?php 
@@ -185,7 +185,7 @@
                                         <?php } ?>
                                     </ol>    
                                 </div>
-
+                                -->            
                                 <div class="carousel-inner w-100" role="listbox">
                                     <?php 
                                     $i = 1;
@@ -201,8 +201,8 @@
                                                     <center>
                                                         <div style="margin-top:35px;">
                                                             <!-- <div class="line-width"></div> -->
-                                                            <h2 style="color:#FFFFFF; font-size:21px; font-weight:bold;"><?php echo $row->item_title; ?></h2>
-                                                            <div style="padding:10px; font-size:15px; line-height:2;">
+                                                            <h2 style="color:#FFFFFF; font-size:19px; font-weight:bold;"><?php echo $row->item_title; ?></h2>
+                                                            <div style="padding:10px; font-size:15px; line-height:1.7;">
                                                                 <?php echo $row->item_body; ?>
                                                             </div>
                                                         </div>
@@ -254,7 +254,7 @@
                 foreach($company as $row){    
                 ?>        
                 <div class="row" style="background-image: url('<?php echo $url_cms.'/storage/files/'.$row->picture; ?>'); width:102%; height:600px; background-repeat: no-repeat; background-size: cover; padding:0px;">
-                    <div class="col-md-6 text-center" style="padding:0px; background-image:linear-gradient(to bottom, #64656A, #969696); padding:7% 5% 5% 5%;">
+                    <div class="col-md-6 text-center animate-box fadeInLeft animated" style="padding:0px; background-image:linear-gradient(to bottom, #64656A, #969696); padding:7% 5% 5% 5%;">
                         <div class="full">
                         <table>
                             <tr>
@@ -270,7 +270,7 @@
                         </table>
                         </div>
                     </div>
-                    <div class="col-lg-12" style="background: rgba(255,255,255,0.5); padding: 0px 20px 20px 20px;">
+                    <div class="col-lg-12 animate-box fadeInRight animated" style="background: rgba(255,255,255,0.5); padding: 0px 20px 20px 20px;">
                         <div>  
                             <div class="row">    
                                 <?php
@@ -420,11 +420,11 @@
         <?php
         foreach($pop_up as $row){
         ?>
-        <div class="modal" id="mypopup" style="<?php if($row->picture){ ?>margin-top:3%;<?php } else { ?> margin-top:9%;<?php } ?>">
-            <div class="modal-dialog modal-lg">
+        <div class="modal" id="mypopup" style="<?php if($row->picture){ ?>margin-top:3%; cursor:pointer;<?php } else { ?> margin-top:9%; cursor:pointer;<?php } ?>">
+            <div class="modal-dialog modal-lg animate-box fadeInUp animated">
                 
                 <div style="float:right; position:absolute; z-index:100; right:0px; margin-top:-15px; margin-right:-15px; cursor:pointer;">
-                    <button type="button" class="btn" data-dismiss="modal" style="background-color:#fff; color:#ff0000; z-index:100; padding:4px 7px 4px 7px; cursor:pointer;"><font class="fa fa-close" style="font-weight:normal; font-size:25px;"></font></button>
+                    <button type="button" class="btn" data-dismiss="modal" style="background-color:#fff; color:#ff0000; z-index:100; padding:4px 7px 4px 7px; cursor:pointer;"><font class="fa fa-close" style="font-weight:normal; font-size:25px; cursor:pointer;"></font></button>
                 </div>
                 
                 <div class="modal-content" style="padding:10px;">
