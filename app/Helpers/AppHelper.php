@@ -114,15 +114,21 @@ class AppHelper
 
     public static function web_backend()
     { 
-        // return 'http://10.1.19.105';
         if(config('app.env') === 'production') {
-            // return 'https://kip.ifg.id:3000';
-            //return 'http://10.0.0.197:3000';
-            // return 'http://kip.ifg.id:3000';
             return 'https://kip.ifg.id';
         }else{
-            //return 'http://kip.ifg.id:3000';
             return 'https://kip.ifg.id';
         }
     } 
+
+    public static function imageheight($a)
+    { 
+        return imageheight::make($a);
+    }
+
+    public static function imagewidth($a)
+    { 
+        $imageData = \Storage::get($a);
+        return Image::make($imageData)->width(); 
+    }
 }

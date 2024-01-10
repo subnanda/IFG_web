@@ -115,7 +115,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12" style="background-image: linear-gradient(to top right, #BD1D23, #E61E26, #F3131B, #ED1C24);">
                         <div class="full">   
-                            <div>
+                            <div style="margin-top:-5px;">
                                 <img class="img-responsive" src="{{ url('image/serong-big.png') }}" style="width:100%;" />
                             </div>
                             <div class="centered" style="float:left; width:80%;">
@@ -332,7 +332,7 @@
                         <h2 style="color:#ff0000; font-size:23px; font-weight:bold;"><?php echo strtoupper($row->content_title); ?></h2>  
                         <?php } ?> 
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center" style="margin-top:-15px;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center" style="margin-top:15px;">
                     
                         <div>
                             <div>
@@ -356,7 +356,7 @@
                                         </ol>    
                                     </div> -->
 
-                                    <div class="carousel-inner w-100" role="listbox">
+                                    <div class="carousel-inner w-100" role="listbox" style="padding-left:10px; padding-right:10px;">
                                         <?php 
                                         $i = 1;
                                         // if($child_company_count == 1){ 
@@ -371,10 +371,12 @@
                                         foreach($child_company as $row){
                                         ?>
                                         <div class="carousel-item <?php if($i == 1){ ?>active<?php } ?>">
-                                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xss-6" style="padding:12px;">
+                                            <div class="col-lg-2 col-md-4 col-sm-3 col-xs-12 col-12 text-center" style="padding:12px;">
+                                                <center>
                                                 <a href="<?php echo url($row->item_link); ?>" target="_blank">
-                                                <img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" style="width:100%;">     
+                                                <img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" class="img-fluid">     
                                                 </a>   
+                                                </center>
                                             </div>
                                         </div>
                                         <?php $i++; } ?>
@@ -389,25 +391,6 @@
                                     </a>
                                 </div>
 
-                                <!-- <div class="row">
-                                    <?php 
-                                    if($child_company_count == 1){ 
-                                        //echo '<div class="carousel-item col-lg-5 col-md-3 col-sm-3 col-3 active" style="width:100%;"></div>'; 
-                                    } else if($child_company_count == 2){ 
-                                        //echo '<div class="carousel-item col-lg-4 col-md-3 active" style="width:100%;"></div>'; 
-                                    } else if($child_company_count == 3){ 
-                                        //echo '<div class="carousel-item col-lg-3 col-md-1 active" style="width:100%;"><img src="http://10.1.19.105/storage/files/636c6dc164592.jpg" class="img-fluid mx-auto d-block" alt="img1"></div>'; 
-                                    } ?>
-                                    <?php 
-                                    foreach($child_company as $row){
-                                    ?>
-                                    <div class="col-lg-2 col-md-3 col-sm-4 col-6" style="margin-bottom:15px;">
-                                        <a href="<?php echo url($row->item_link); ?>">
-                                        <img src="<?php echo $url_cms.'/storage/files/'.$row->item_file; ?>" class="img-fluid" style="max-height:100px;">     
-                                        </a>   
-                                    </div>
-                                    <?php } ?>
-                                </div> -->
                             </div>
                         </div>
 

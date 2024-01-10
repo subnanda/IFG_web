@@ -13,17 +13,17 @@ class EmailController extends Controller
         $request->validate([
             'nama' => 'required|max:25',
             'email' => 'required|email',
-            'pesan' => 'required',
+            'pesan' => 'required|max:300',
         ]);
 
         $details = [
-            'title' => 'Layanan pengaduan IFG KIP',
+            'title' => 'Layanan Keterbukaan Informasi Publik',
             'nama' => strip_tags($request->nama),
             'email' => strip_tags($request->email),
             'pesan' => $request->pesan,
         ];
 
-        Mail::to('testsmtpval@gmail.com')->send(new \App\Mail\SendMail($details));
+        Mail::to('eppid@ifg.id')->send(new \App\Mail\SendMail($details));
 
         $response = [
             'status' => 'success',

@@ -10,7 +10,7 @@
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
-
+      gtag('set', {cookie_flags: 'SameSite=None;Secure'});
       gtag('config', 'G-H0Z3HSZXBH');
    </script>
 

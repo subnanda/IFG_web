@@ -220,7 +220,7 @@ class FrontendController extends Controller
         <div id="slider_card">
             <link rel="stylesheet" href="<?= asset('assets/css/bootstrap.min.css'); ?>" />
             <?php
-			$url_cms = 'http://10.1.19.105';
+			$url_cms = \App\Helpers\AppHelper::web_backend();
             $card = DB::table('ifg_pages_content_list_item')
             ->select('*')
             ->where('id_pages_content', '=', 3)->get();

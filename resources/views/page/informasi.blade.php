@@ -229,8 +229,12 @@ foreach($content as $rowcontent){
                       $no = 1;
                       $query2 = \App\Helpers\AppHelper::select_ifg_pages_content_list_item($row->id);
                       foreach ($query2 as $row2) {	
+                        $files = 'https://'.str_replace('https://', '', str_replace('www.', '', str_replace('http://', '', $row2->item_link)));
+                        if($row2->item_type == 'FL'){
+                            $files = $url_cms.'/storage/files/'.$row2->item_file;
+                        }
                       ?>
-                        <a style="color:#33354c; font-size:15px;" href="<?= $url_cms.'/storage/files/'.$row2->item_file; ?>" target="_blank">
+                        <a style="color:#33354c; font-size:15px;" href="<?= $files; ?>" target="_blank">
                             <div class="panel panel-default" style="background-image: linear-gradient(#ffffff, #F9F9F9); font-size:14px; box-shadow: 0 0 1px 1px #ccc; margin-bottom:20px;">
                             <div class="panel-title">
                                 <table style="width:100%;">

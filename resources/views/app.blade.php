@@ -14,7 +14,7 @@ header("strict-transport-security: max-age=2592000");
     @yield('style')
 </head>
 
-<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98" style="font-family:'Montserrat';">
+<body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98" style="font-family:'Montserrat';" onclick="menu_hide_all()">
     @yield('menu')
     @yield('content')
     @yield('footer')
@@ -69,6 +69,19 @@ header("strict-transport-security: max-age=2592000");
                 background-size: 270px;
                 background-position: right top;
             }
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #666666;
+        opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #666666;
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #666666;
         }
     </style>
 </body>

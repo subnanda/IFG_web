@@ -1,6 +1,5 @@
 	<!-- Start Footer -->
     <?php
-    // $url_cms = 'http://10.1.19.105';
 	$url_cms = \App\Helpers\AppHelper::web_backend();
     ?>
     <footer class="footer-box footer-div animate-box fadeInUp animated">
@@ -99,13 +98,15 @@
 	foreach ($query as $row) {
 	?>
 	<style>
-	.font-menu<?php echo $row->id; ?>{
-		border-bottom:6px solid #ff0000;
-		margin-top: 15px;
-		width:100%;
-		display:none;
-		margin-bottom: -15px;
-	}
+		@media (min-width: 992px) {
+			.font-menu<?php echo $row->id; ?>{
+				border-bottom:6px solid #ff0000;
+				margin-top: 15px;
+				width:100%;
+				display:none;
+				margin-bottom: -15px;
+			}
+		}
 
 	/* .font-menu-title<?php echo $row->id; ?>:hover{
 		margin-top: -10px;
@@ -132,6 +133,15 @@
 		if(a != <?php echo $row->id; ?>){
 			$(".menu-utama<?php echo $row->id; ?>").hide();
 		}
+		<?php } ?>
+	}
+
+	function menu_hide_all(){
+		<?php
+		$query = \App\Helpers\AppHelper::menu_parent();
+		foreach ($query as $row) {
+		?>
+		$(".menu-utama<?php echo $row->id; ?>").hide();
 		<?php } ?>
 	}
 
@@ -204,50 +214,7 @@
 			$("#chat-open").show();
 			$("#chat-close").hide();
 		});	
-	});
-	
-	// $(document).ready(function() {
-
-	// 	$("#search_action1").keyup(function() {
-	// 		var html = "";
-	// 		$("#search_hasil1").empty();
-	// 		var pencarian = $("#search_action1").val();
-	// 		if(pencarian && pencarian.length > 0){				
-	// 			$.ajax({
-	// 				url: "<?= url('searching') ?>",
-	// 				method: "POST",
-	// 				data: {
-	// 					'_token': '<?= csrf_token() ?>',
-	// 					'pencarian': pencarian
-	// 				},
-	// 				success: function(data) {
-	// 					$("#search_hasil1").empty();
-	// 					var html_null = '<div id="search_hasil1"></div>';
-	// 					$("#search_hasil1").append(html_null);
-	// 					var html = '<div id="overflow">';
-	// 					var no = 1;
-	// 					var url = "<?php echo url('/'); ?>";
-	// 					$.each(data, function(i, item) {
-	// 						var konten = data[i].content_body;
-	// 						var konten = konten.substring(0, 80);
-	// 						var title = data[i].content_title;
-	// 						html +=
-	// 							'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-	// 						no++;
-	// 					});
-	// 					html += '</div>';
-
-	// 					$("#search_hasil1").append(html);
-	// 				}
-	// 			})
-	// 		} else {
-	// 			$("#search_hasil1").empty();
-	// 			var html_null = '<div id="search_hasil1"></div>';
-	// 			$("#search_hasil1").append(html_null);
-	// 		}
-	// 	})
-
-	// });	
+	});	
 
 	function search_input(a) {
 		//alert(a);
@@ -286,88 +253,6 @@
 			document.getElementById('search_hasil2').innerHTML = '<div id="search_hasil2" style="position: absolute; width:47%;"></div>';
 		}
 	}
-
-    $(document).ready(function() {
-
-		// $("#search_action1").keyup(function() {
-		// 	var html = "";
-		// 	$("#search_hasil1").empty();
-		// 	var pencarian = $("#search_action1").val();
-		// 	if(pencarian && pencarian.length > 0){				
-		// 		$.ajax({
-		// 			url: "<?= url('searching') ?>",
-		// 			method: "POST",
-		// 			data: {
-		// 				'_token': '<?= csrf_token() ?>',
-		// 				'pencarian': pencarian
-		// 			},
-		// 			success: function(data) {
-		// 				$("#search_hasil1").empty();
-		// 				var html_null = '<div id="search_hasil1"></div>';
-		// 				$("#search_hasil1").append(html_null);
-		// 				var html = '<div id="overflow">';
-		// 				var no = 1;
-		// 				var url = "<?php echo url('/'); ?>";
-		// 				$.each(data, function(i, item) {
-		// 					var konten = data[i].content_body;
-		// 					var konten = konten.substring(0, 80);
-		// 					var title = data[i].content_title;
-		// 					html +=
-		// 						'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-		// 					no++;
-		// 				});
-		// 				html += '</div>';
-
-		// 				$("#search_hasil1").append(html);
-		// 			}
-		// 		})
-		// 	} else {
-		// 		$("#search_hasil1").empty();
-		// 		var html_null = '<div id="search_hasil1"></div>';
-		// 		$("#search_hasil1").append(html_null);
-		// 	}
-		// })
-
-		// $("#search_action2").keyup(function() {
-		// 	var html = "";
-		// 	$("#search_hasil2").empty();
-		// 	var pencarian = $("#search_action2").val();
-		// 	if(pencarian && pencarian.length > 0){				
-		// 		$.ajax({
-		// 			url: "<?= url('searching') ?>",
-		// 			method: "POST",
-		// 			data: {
-		// 				'_token': '<?= csrf_token() ?>',
-		// 				'pencarian': pencarian
-		// 			},
-		// 			success: function(data) {
-		// 				$("#search_hasil2").empty();
-		// 				var html_null = '<div id="search_hasil2"></div>';
-		// 				$("#search_hasil2").append(html_null);
-		// 				var html = '<div id="overflow">';
-		// 				var no = 1;
-		// 				var url = "<?php echo url('/'); ?>";
-		// 				$.each(data, function(i, item) {
-		// 					var konten = data[i].content_body;
-		// 					var konten = konten.substring(0, 80);
-		// 					var title = data[i].content_title;
-		// 					html +=
-		// 						'<div class="search-border"><a href="'+url+'/'+data[i].menu_link+'/'+data[i].menu_link_slug+'"><div style="font-weight:bold; font-size:14px;">'+title+'</div><div style="border:0.5px solid #ccc; width:100%; margin-top:10px; margin-bottom:10px;"></div></a></div>';
-		// 					no++;
-		// 				});
-		// 				html += '</div>';
-
-		// 				$("#search_hasil2").append(html);
-		// 			}
-		// 		})
-		// 	} else {
-		// 		$("#search_hasil2").empty();
-		// 		var html_null = '<div id="search_hasil2"></div>';
-		// 		$("#search_hasil2").append(html_null);
-		// 	}
-		// })
-
-	});	
 	</script>
 
     <script src="<?= asset('assets/js/jquery.magnific-popup.min.js') ?>"></script>

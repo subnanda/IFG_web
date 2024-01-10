@@ -3606,10 +3606,10 @@ transform: translate(-50%, -50%);
 		font-size:11px;
 		z-index:20; 
 		color:#333333;
-		top:-460px; 
+		top:-475px; 
 		width:380px;
 		background-color: #fff;
-		box-shadow: 0 0 4px 4px #ccc;
+		box-shadow: 0 0 1px 1px #999999;
 		display:none;
 	}
 }
@@ -3621,10 +3621,10 @@ transform: translate(-50%, -50%);
 		font-size:11px; 
 		z-index:20; 
 		color:#333333;
-		top:-460px; 
+		top:-475px; 
 		width:380px;
 		background-color: #fff;
-		box-shadow: 0 0 4px 4px #ccc;
+		box-shadow: 0 0 4px 4px #999999;
 		display:none;
 	}
 }
@@ -3636,10 +3636,10 @@ transform: translate(-50%, -50%);
 		font-size:11px; 
 		z-index:20; 
 		color:#333333;
-		top:-420px; 
+		top:-435px; 
 		width:290px;
 		background-color: #fff;
-		box-shadow: 0 0 4px 4px #ccc;
+		box-shadow: 0 0 4px 4px #999999;
 		display:none;
 	}
 }
